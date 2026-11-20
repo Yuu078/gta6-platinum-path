@@ -1,175 +1,148 @@
-// Leonida Platinum Path — wiring. Loads the trophy data, owns the saved state (earned set,
-// counters, filters, spoiler setting, selected trophy, active tab) in localStorage, renders the
-// active view, and handles export / import of the whole progress file.
+// app.js — boot, the resume bookmark, and the chapter index.
+// The story is the interface: a poster up top, your bookmark beneath it,
+// then the chapters in order, each keeping its secrets until its turn.
 
-import { renderMissablesView, renderPlannerView } from "./planner.js";
-import { renderTrackerView } from "./tracker.js";
-import { renderCountersView } from "./counters.js";
+import { loadState, saveState, wipeState, exportState, importState } from './progress.js';
+import { createReader, chapterBeats } from './reader.js';
+import { renderOffScript } from './offscript.js';
 
-export const STORAGE_KEY = "leonida-platinum-path-v1";
+const params = new URLSearchParams(location.search);
+const heroEl = document.getElementById('resume-hero');
+const indexEl = document.getElementById('chapter-index');
+const readerEl = document.getElementById('reader');
+const offEl = document.getElementById('offscript');
+const noteEl = document.getElementById('ledger-note');
 
-export function createDefaultState() {
-  return {
-    earnedIds: new Set(),
-    counters: {},
-    spoilersOn: true,
-    selectedTrophyId: 17,
-    activeTab: "planner",
-    filters: { kind: "all", grade: "all", stage: "all", search: "", hideEarned: false },
-  };
-}
+let data = null;
+let state = null;
+let reader = null;
+let offView = null;
 
-export function loadSavedState() {
-  const state = createDefaultState();
-  try {
-    const raw = localStorage.getItem(STORAGE_KEY);
-    if (!raw) return state;
-    const saved = JSON.parse(raw);
-    if (Array.isArray(saved.earned)) state.earnedIds = new Set(saved.earned);
-    if (saved.counters && typeof saved.counters === "object") state.counters = saved.counters;
-    if (typeof saved.spoilersOn === "boolean") state.spoilersOn = saved.spoilersOn;
-    if (typeof saved.selectedTrophyId === "number") state.selectedTrophyId = saved.selectedTrophyId;
-    if (typeof saved.activeTab === "string") state.activeTab = saved.activeTab;
-    if (saved.filters) Object.assign(state.filters, saved.filters);
-  } catch {
-    return createDefaultState();
-  }
-  return state;
-}
+const isFogged = (n) => n > 0 && !state.doneChapters.includes(n - 1);
+const chapterOf = (n) => data.chapters.find((c) => c.n === n);
+const trophyOf = (id) => data.trophies.find((t) => t.id === id);
 
-export function serializeState(state) {
-  return {
-    earned: [...state.earnedIds],
-    counters: state.counters,
-    spoilersOn: state.spoilersOn,
-    selectedTrophyId: state.selectedTrophyId,
-    activeTab: state.activeTab,
-    filters: state.filters,
-  };
-}
-
-const viewElement = document.getElementById("view");
-const progressElement = document.getElementById("overall-progress");
-const barElement = document.getElementById("overall-bar");
-const spoilerToggle = document.getElementById("spoiler-toggle");
-const state = loadSavedState();
-let trophies = [];
-
-export function saveStateOnly() {
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(serializeState(state)));
-}
-
-export function formatProgressSummary(earnedCount, total) {
-  const percent = total === 0 ? 0 : Math.round((earnedCount / total) * 100);
-  return { text: `${earnedCount} of ${total} · ${percent}%`, percent };
-}
-
-export function updateOverallProgress() {
-  const total = trophies.length || 55;
-  const summary = formatProgressSummary(state.earnedIds.size, total);
-  progressElement.textContent = summary.text;
-  barElement.style.width = `${summary.percent}%`;
-}
-
-export function renderCurrentView() {
-  updateOverallProgress();
-  for (const button of document.querySelectorAll(".tab-button")) {
-    button.classList.toggle("is-active", button.dataset.tab === state.activeTab);
-  }
-  const context = buildViewContext();
-  if (state.activeTab === "trophies") renderTrackerView(viewElement, context);
-  else if (state.activeTab === "missables") renderMissablesView(viewElement, context);
-  else if (state.activeTab === "collectibles") renderCountersView(viewElement, context);
-  else renderPlannerView(viewElement, context);
-}
-
-export function renderCurrentViewKeepingFocus(elementId) {
-  renderCurrentView();
-  const element = document.getElementById(elementId);
-  if (element) {
-    element.focus();
-    if (typeof element.setSelectionRange === "function") {
-      const end = element.value.length;
-      element.setSelectionRange(end, end);
-    }
-  }
-}
-
-function buildViewContext() {
-  return {
-    trophies,
-    state,
-    saveStateOnly,
-    saveAndRender() {
-      saveStateOnly();
-      renderCurrentView();
-    },
-    renderCurrentViewKeepingFocus,
-    setEarned(trophyId, earned) {
-      if (earned) state.earnedIds.add(trophyId);
-      else state.earnedIds.delete(trophyId);
-      saveStateOnly();
-      renderCurrentView();
-    },
-    openTrophyDetail(trophyId) {
-      state.selectedTrophyId = trophyId;
-      state.activeTab = "trophies";
-      saveStateOnly();
-      renderCurrentView();
-    },
-  };
-}
-
-export function exportProgressFile() {
-  const blob = new Blob([JSON.stringify(serializeState(state), null, 2)], { type: "application/json" });
-  const link = document.createElement("a");
-  link.href = URL.createObjectURL(blob);
-  link.download = "leonida-platinum-path-progress.json";
-  link.click();
-  URL.revokeObjectURL(link.href);
-}
-
-export async function importProgressFile(file) {
-  const parsed = JSON.parse(await file.text());
-  const fresh = createDefaultState();
-  if (Array.isArray(parsed.earned)) fresh.earnedIds = new Set(parsed.earned);
-  if (parsed.counters) fresh.counters = parsed.counters;
-  if (typeof parsed.spoilersOn === "boolean") fresh.spoilersOn = parsed.spoilersOn;
-  state.earnedIds = fresh.earnedIds;
-  state.counters = fresh.counters;
-  state.spoilersOn = fresh.spoilersOn;
-  spoilerToggle.checked = state.spoilersOn;
-  saveStateOnly();
-  renderCurrentView();
-}
-
-function wireHeaderControls() {
-  spoilerToggle.checked = state.spoilersOn;
-  spoilerToggle.addEventListener("change", () => {
-    state.spoilersOn = spoilerToggle.checked;
-    saveStateOnly();
-    renderCurrentView();
-  });
-  document.getElementById("export-progress").addEventListener("click", exportProgressFile);
-  document.getElementById("import-progress").addEventListener("change", async (event) => {
-    const file = event.target.files[0];
-    if (file) await importProgressFile(file);
-  });
-  for (const button of document.querySelectorAll(".tab-button")) {
-    button.addEventListener("click", () => {
-      state.activeTab = button.dataset.tab;
-      saveStateOnly();
-      renderCurrentView();
+function renderHero() {
+  if (state.last && trophyOf(state.last.beatId)) {
+    const ch = chapterOf(state.last.chapter);
+    const beat = trophyOf(state.last.beatId);
+    heroEl.innerHTML = `
+      <p class="rh-kicker">Resume Scene</p>
+      <p class="rh-scene">${ch.title}</p>
+      <p class="rh-beat">You left the story at: ${beat.beat} · ${beat.name}</p>
+      <button type="button" class="primary" id="resume-btn">Pick the scene back up</button>`;
+    heroEl.querySelector('#resume-btn').addEventListener('click', () => {
+      reader.open(state.last.chapter, state.last.beatId);
     });
+  } else {
+    heroEl.innerHTML = `
+      <p class="rh-kicker">Resume Scene</p>
+      <p class="rh-scene">No bookmark yet — the story has not begun.</p>
+      <p class="rh-beat">It starts with a fishing trip in the Prologue, and it only gets stranger from there.</p>
+      <button type="button" class="primary" id="resume-btn">Begin at the Prologue</button>`;
+    heroEl.querySelector('#resume-btn').addEventListener('click', () => reader.open(0));
   }
 }
 
-async function loadTrophiesAndStart() {
-  const response = await fetch("data/trophies.json");
-  const data = await response.json();
-  trophies = data.trophies;
-  wireHeaderControls();
-  renderCurrentView();
+function dotsFor(n) {
+  return chapterBeats(data, n).map((b) => {
+    const cls = state.earned.includes(b.id) ? 'earned' : state.read.includes(b.id) ? 'read' : '';
+    return `<span class="dot ${cls}" title="${b.name}"></span>`;
+  }).join('');
 }
 
-loadTrophiesAndStart();
+function renderIndex() {
+  indexEl.innerHTML = data.chapters.map((ch) => {
+    const fog = isFogged(ch.n);
+    const beats = chapterBeats(data, ch.n);
+    const done = state.doneChapters.includes(ch.n);
+    return `
+      <article class="chapter-card ${fog ? 'fogged' : ''}" id="chapter-${ch.n}">
+        <span class="big-num">${ch.n}</span>
+        <h3>${ch.title}${done ? '<span class="done-badge">Done</span>' : ''}</h3>
+        <p class="tagline">${ch.tagline}</p>
+        <div class="${fog ? 'fog-blur' : ''}">
+          <p class="summary">${ch.summary}</p>
+          <ul class="beat-names">${beats.map((b) => `<li>${b.beat} — ${b.name}</li>`).join('')}</ul>
+        </div>
+        ${fog ? '<p class="fog-note">Under fog. Mark the chapter before this one done, and these pages clear.</p>' : ''}
+        <div class="dots">${dotsFor(ch.n)}</div>
+        <div class="card-actions">
+          <button type="button" class="primary" data-read="${ch.n}">${fog ? 'Peek at the fog' : 'Read this chapter'}</button>
+          <button type="button" data-toggle-done="${ch.n}">${done ? 'Undo done' : 'Mark chapter done'}</button>
+        </div>
+      </article>`;
+  }).join('');
+  indexEl.querySelectorAll('[data-read]').forEach((b) => {
+    b.addEventListener('click', () => {
+      const n = Number(b.dataset.read);
+      const resumeHere = state.last && state.last.chapter === n ? state.last.beatId : undefined;
+      reader.open(n, resumeHere);
+    });
+  });
+  indexEl.querySelectorAll('[data-toggle-done]').forEach((b) => {
+    b.addEventListener('click', () => {
+      const n = Number(b.dataset.toggleDone);
+      if (state.doneChapters.includes(n)) state.doneChapters = state.doneChapters.filter((x) => x !== n);
+      else state.doneChapters.push(n);
+      onChange();
+    });
+  });
+}
+
+function onChange(redrawOff = true) {
+  saveState(state);
+  renderHero();
+  renderIndex();
+  if (redrawOff && offView) offView.redraw();
+}
+
+function wireLedger() {
+  document.getElementById('export-btn').addEventListener('click', () => {
+    exportState(state);
+    noteEl.textContent = 'Your place is saved to a file. Keep it somewhere safe.';
+  });
+  document.getElementById('reset-btn').addEventListener('click', () => {
+    Object.assign(state, wipeState());
+    if (reader) reader.close();
+    onChange();
+    noteEl.textContent = 'Wiped clean. No bookmarks, no marks — page one is waiting whenever you are.';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+  document.getElementById('import-file').addEventListener('change', (ev) => {
+    const file = ev.target.files[0];
+    if (!file) return;
+    importState(file, (next) => {
+      Object.assign(state, next);
+      onChange();
+      noteEl.textContent = 'Bookmark restored. The story picks up where that file left it.';
+    }, () => {
+      noteEl.textContent = 'That file does not look like a saved place. Nothing was changed.';
+    });
+  });
+}
+
+async function boot() {
+  const res = await fetch('data/trophies.json');
+  data = await res.json();
+  state = loadState(data, params.get('demo') === '1');
+  reader = createReader({ container: readerEl, data, state, isFogged, onChange: () => onChange(false) });
+  // reader shares the live state object; after a wipe we rebind below
+  renderHero();
+  renderIndex();
+  offView = renderOffScript({ container: offEl, data, state, onChange: () => onChange(false) });
+  wireLedger();
+
+  if (params.get('scene')) {
+    reader.openScene(Number(params.get('scene')));
+  } else if (params.get('chapter') !== null && params.get('chapter') !== '') {
+    const n = Number(params.get('chapter'));
+    const resumeHere = state.last && state.last.chapter === n ? state.last.beatId : undefined;
+    reader.open(n, resumeHere);
+  } else if (params.get('view') === 'offscript') {
+    document.body.classList.add('offscript-focus');
+    setTimeout(() => offEl.scrollIntoView(), 60);
+  }
+}
+
+boot();

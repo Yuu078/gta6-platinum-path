@@ -1,34 +1,71 @@
-# Leonida Platinum Path — GTA VI Trophy Guide, Roadmap & Tracker
-[![make.fun · gta6-trophy-guide-01](https://make.fun/badge/gta6-trophy-guide-01.svg)](https://make.fun/bounty/gta6-trophy-guide-01?utm_source=github&utm_medium=readme&utm_campaign=gta6-trophy-guide-01)
-[![rank](https://make.fun/badge/gta6-trophy-guide-01/Yuu078/gta6-platinum-path/rank.svg)](https://make.fun/bounty/gta6-trophy-guide-01/leaderboard?utm_source=github&utm_medium=readme&utm_campaign=gta6-trophy-guide-01)
-[![reward](https://make.fun/badge/gta6-trophy-guide-01/Yuu078/gta6-platinum-path/reward.svg)](https://make.fun/bounty/gta6-trophy-guide-01?utm_source=github&utm_medium=readme&utm_campaign=gta6-trophy-guide-01)
+# Platinum Path — A Story-First GTA VI Trophy Walkthrough
 
-Leonida Platinum Path is a fully offline, static web app for hunting the Grand Theft Auto VI platinum on PlayStation 5. It has no dependencies and makes no network calls — plain HTML, CSS and ES modules plus a JSON data file, opened straight from `app/`. It covers all 55 trophies (1 platinum, 2 gold, 6 silver, 46 bronze) with their official PlayStation names, descriptions and grades. What sets it apart from a plain checklist is its roadmap-first angle: every trophy is placed in a five-stage platinum planner, so you always know what to do next, what can wait, and what you could lose for good if you push the story too far.
+Most trophy guides hand you a spreadsheet and wish you luck. Platinum Path hands you a story.
 
-## What it does
+The walkthrough follows Leonida the way the game tells it: a Prologue, four chapters, and
+The Final Ride. You read it one scene at a time — a single story beat per screen, turned
+like pages with buttons, arrow keys, or a swipe. Each scene names the trophy the story is
+about to hand you, explains it in plain words, and lists the steps, the source, and
+occasionally a set-side tip earned the hard way.
 
-- **5-stage planner** — the roadmap view groups all 55 trophies into five stages, shows per-stage progress bars and an overall completion readout, and keeps a "Next up" panel pointing at the sensible next targets, including a pinned warning when a missable trophy is coming due.
-- **Tracker** — the Trophies view lists every trophy with filters by kind (story, activities, collectibles, meta), grade and roadmap stage, plus text search and a hide-earned toggle, so a long session can be narrowed to exactly the trophies still in play.
-- **Spoiler protection, on by default** — unearned story trophies are hidden behind the spoiler toggle in the header, so you can plan a run without reading ahead into plot beats you have not reached.
-- **Missables view** — a dedicated view for the 5 missable trophies, each with a warning explaining the reason that particular chance can close, alongside its guide and source.
-- **Collectible counters** — the Collectibles view gives the 11 counted trophies (the ones with a numeric target, such as stunts) minus/plus counters with progress bars; reaching a counter's target marks that trophy earned automatically.
-- **Per-trophy guides** — every trophy carries a written guide in our own words, a numbered list of steps, its kind, stage, difficulty estimate and expected minutes, and a named source shown beside the trophy.
-- **Progress that stays yours** — earned trophies and counter values are saved in the browser via `localStorage`, and the header's Export/Import buttons back that progress up or move it between browsers as a single JSON file.
+## How it protects you from spoilers
 
-## Run it
+Chapter titles are always visible, but a chapter's scenes and trophy names stay under fog
+until you mark the previous chapter done. Nothing is revealed before the story itself
+would reveal it. And when a scene can only ever be played once, the reader stops you one
+page earlier with a full **Point of No Return** interlude: make a manual save, read the
+reason, then turn the page when you are ready.
 
-Serve the `app/` folder with any static file server. From the repo root:
+## Off The Script
 
-```sh
-node serve.ts
+Not everything belongs to a chapter. Collectibles, activities, stunt counts, vault jobs,
+strange nights, the 100% completion marathon and the platinum itself live in a closing
+section called **Off The Script**, after the story, with its own search and grade filter.
+
+## Your place in the story
+
+A **Resume Scene** bookmark at the top always shows where you left the story and drops you
+back into the reader at that exact scene. Progress is kept per chapter only — a row of
+marks under each chapter, one per scene, filled as you read and earn. There is deliberately
+no global percentage anywhere: stories are finished, not filled.
+
+First visit? The guide opens mid-walkthrough on purpose — the Prologue and Chapter 1 are
+done, Chapter 2 is under way — so you can see it alive. Use **Start fresh** in the ledger
+to wipe it to a truly empty page one. Your place can also be exported and imported as a
+small JSON file. Everything is stored only in your browser.
+
+## Running it
+
+Serve the app locally:
+
+```
+node serve.ts            # then open the printed local address, port 8080 by default
+node serve.ts --port 8123
 ```
 
-then open <http://localhost:8080>. Once the page has loaded it works with the network switched off — there is nothing to install and nothing to build.
+Build the submission dossier:
 
-## Hand-in check
+```
+MAKEFUN_OUTPUT_DIR=out node main.ts
+```
 
-`MAKEFUN_OUTPUT_DIR=out node main.ts` rebuilds the hand-in dossier in `out/` and first runs the built-in verification in `main.ts`, which prints a PASS line confirming all 55 trophies carry a non-empty guide, at least two steps each, a named source, and a roadmap stage between 1 and 5.
+The build first verifies the guide data — 55 trophies, each with exactly one home
+(a story chapter, or Off The Script), no empty chapters — and prints a one-line PASS
+summary before writing anything.
 
-## License
+## Data and sources
 
-MIT (see LICENSE).
+Trophy names, descriptions and grades are the official PlayStation 5 list of 55 trophies
+for Grand Theft Auto VI (list dated 2026-11-18). Every scene guide, step list and tip is
+original writing for this guide. Each trophy credits one reference source by name —
+rotating among PowerPyx, PSNProfiles, PlayStationTrophies.org, TrueTrophies, Exophase,
+the GTA Wiki (Fandom) and Push Square. The app is fully offline: system fonts only, no
+external requests, the only file it loads is its own `app/data/trophies.json`.
+
+## The competition
+
+[![Competition badge](https://make.fun/badge/gta6-trophy-guide-01.svg)](https://make.fun/competitions/gta6-trophy-guide-01)
+[![Rank badge](https://make.fun/badge/gta6-trophy-guide-01/Yuu078/gta6-platinum-path/rank.svg)](https://make.fun/competitions/gta6-trophy-guide-01)
+[![Reward badge](https://make.fun/badge/gta6-trophy-guide-01/Yuu078/gta6-platinum-path/reward.svg)](https://make.fun/competitions/gta6-trophy-guide-01)
+
+Built for the make.fun competition `gta6-trophy-guide-01`.

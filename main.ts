@@ -1,60 +1,73 @@
-// A working gta6-trophy-guide-01 entry (Node 22, standard library only): the guide is this directory's app/ folder,
-// plain static files a browser opens at app/index.html (ES modules, CSS, no build step), offline: it loads nothing
-// over the network, and its trophy list and guides are app/data/trophies.json. The program hands it in: it copies app/
-// and screenshots/ from beside this file to /output and writes /output/dossier.json, the summary the judge reads (your
-// screenshots, the first load's files and bytes, and your source), with the vendored make.fun library. Leave
-// vendor/makefun-frontend.ts as it is: the scorer requires dossier.json to be byte for byte what its own copy writes.
-//
-// Only the plumbing, not a winner: a plain checklist of the 55 trophies with a one-line hint each. Write a real guide
-// for every trophy in your own words, a roadmap to the platinum, filters and a spoiler setting in app/, put 3 or 4 PNG
-// or JPEG screenshots of it in screenshots/ (the first by name is the cover; shots.json says which views this
-// starter's were taken of), and run it.
-//
-// Serve it locally with `node serve.ts`, then open http://localhost:8080.
-// Outside the grader's container, MAKEFUN_OUTPUT_DIR stands in for /output:
-//   mkdir -p out && MAKEFUN_OUTPUT_DIR=out node main.ts
+// Platinum Path — story-first GTA VI trophy guide: build entrypoint.
+// Copies the static app (and any screenshots) into the output folder and
+// writes dossier.json with the vendored make.fun library. Before copying,
+// it verifies the authored trophy data so a broken guide can never ship.
 
 import { cpSync, existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { buildDossier } from './vendor/makefun-frontend.ts';
 
-const here = fileURLToPath(new URL('.', import.meta.url));
-const out = process.env.MAKEFUN_OUTPUT_DIR ?? '/output';
+const CONFIG = {
+  textCap: 163840,
+  shotMax: 4,
+  shotBytes: 262144,
+  appFileCap: 993,
+  appByteCap: 50331648,
+  expectedTrophies: 55,
+};
 
-// Authored verification (read-only: it parses the trophy data and writes nothing itself, so the
-// outputs below stay deterministic). The guide ships only if every one of the 55 official trophies
-// carries a real guide, at least two steps, a named source, and a roadmap stage between 1 and 5.
-const trophyData = JSON.parse(readFileSync(join(here, 'app', 'data', 'trophies.json'), 'utf8'));
-const trophyList = Array.isArray(trophyData) ? trophyData : trophyData.trophies;
-if (!Array.isArray(trophyList) || trophyList.length !== 55) {
-  throw new Error(`trophy verification failed: expected exactly 55 trophies, found ${Array.isArray(trophyList) ? trophyList.length : 'none'}`);
+const rootDir = fileURLToPath(new URL('.', import.meta.url));
+const outDir = process.env.MAKEFUN_OUTPUT_DIR ?? '/output';
+
+// --- authored verification: counts and shapes only, never content dumps ---
+function verifyGuide() {
+  const raw = readFileSync(join(rootDir, 'app', 'data', 'trophies.json'), 'utf8');
+  const data = JSON.parse(raw);
+  const trophies = data.trophies;
+  const chapters = data.chapters;
+  if (!Array.isArray(trophies) || trophies.length !== CONFIG.expectedTrophies) {
+    throw new Error('trophy count mismatch');
+  }
+  const ids = new Set(trophies.map((t) => t.id));
+  if (ids.size !== CONFIG.expectedTrophies) throw new Error('duplicate trophy ids');
+  for (let i = 1; i <= CONFIG.expectedTrophies; i += 1) {
+    if (!ids.has(i)) throw new Error('missing trophy id ' + i);
+  }
+  const chapterNums = new Set(chapters.map((c) => c.n));
+  if (chapters.length !== 6) throw new Error('expected exactly 6 story chapters');
+  for (const t of trophies) {
+    if (typeof t.guide !== 'string' || t.guide.length < 40) throw new Error('guide too short for id ' + t.id);
+    if (!Array.isArray(t.steps) || t.steps.length < 3) throw new Error('steps too few for id ' + t.id);
+    if (typeof t.source !== 'string' || t.source.length === 0) throw new Error('source missing for id ' + t.id);
+    const inChapter = chapterNums.has(t.chapter);
+    const offScript = t.offscript === true && t.chapter === null;
+    if (inChapter === offScript) throw new Error('trophy must have exactly one home, id ' + t.id);
+  }
+  for (const c of chapters) {
+    if (!trophies.some((t) => t.chapter === c.n)) throw new Error('empty chapter ' + c.n);
+  }
+  const storyCount = trophies.filter((t) => chapterNums.has(t.chapter)).length;
+  const offCount = trophies.filter((t) => t.offscript === true).length;
+  const missableCount = trophies.filter((t) => t.missable).length;
+  console.log(`PASS: 55 trophies verified — ${storyCount} story beats in ${chapters.length} chapters, ${offCount} off the script, ${missableCount} points of no return`);
 }
-for (const trophy of trophyList) {
-  if (typeof trophy.guide !== 'string' || trophy.guide.trim() === '') {
-    throw new Error(`trophy verification failed: "${trophy.name}" has an empty guide`);
-  }
-  if (!Array.isArray(trophy.steps) || trophy.steps.length < 2) {
-    throw new Error(`trophy verification failed: "${trophy.name}" has fewer than 2 steps`);
-  }
-  if (typeof trophy.source !== 'string' || trophy.source.trim() === '') {
-    throw new Error(`trophy verification failed: "${trophy.name}" names no source`);
-  }
-  if (!Number.isInteger(trophy.stage) || trophy.stage < 1 || trophy.stage > 5) {
-    throw new Error(`trophy verification failed: "${trophy.name}" has stage ${trophy.stage}, outside 1-5`);
-  }
+
+verifyGuide();
+
+mkdirSync(outDir, { recursive: true });
+cpSync(join(rootDir, 'app'), join(outDir, 'app'), { recursive: true });
+mkdirSync(join(outDir, 'screenshots'), { recursive: true });
+if (existsSync(join(rootDir, 'screenshots'))) {
+  cpSync(join(rootDir, 'screenshots'), join(outDir, 'screenshots'), { recursive: true });
 }
-console.log(`PASS: 55 trophies verified — every guide non-empty, >=2 steps each, named source, stage 1-5 (${trophyList.filter((t) => t.missable).length} missable flagged).`);
 
-mkdirSync(out, { recursive: true });
-cpSync(join(here, 'app'), join(out, 'app'), { recursive: true });
-mkdirSync(join(out, 'screenshots'), { recursive: true });
-if (existsSync(join(here, 'screenshots'))) cpSync(join(here, 'screenshots'), join(out, 'screenshots'), { recursive: true });
-
-// The scorer's own caps (reference/gate.json): only text_max_bytes shapes the bytes; the others refuse an entry the
-// scorer would refuse (more than 4 screenshots or one over 256 KiB; more than 993 files and directories in app/ or
-// 48 MiB of app files: app/ counts beside /output's own 1000-entry cap, its screenshots/ and dossier.json).
 writeFileSync(
-  join(out, 'dossier.json'),
-  buildDossier(out, { text_max_bytes: 163840, screenshots: { max: 4, max_bytes: 262144 }, app_max_files: 993, app_max_bytes: 50331648 }),
+  join(outDir, 'dossier.json'),
+  buildDossier(outDir, {
+    text_max_bytes: CONFIG.textCap,
+    screenshots: { max: CONFIG.shotMax, max_bytes: CONFIG.shotBytes },
+    app_max_files: CONFIG.appFileCap,
+    app_max_bytes: CONFIG.appByteCap,
+  }),
 );
