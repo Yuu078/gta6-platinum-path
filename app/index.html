@@ -1,51 +1,42 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Platinum Path — A Story-First GTA VI Trophy Walkthrough</title>
+<title>Platinum Path — a story-first reader for the GTA VI platinum</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header class="poster">
-  <p class="poster-kicker">Grand Theft Auto VI · PlayStation 5 · The Official 55</p>
-  <h1>Platinum<br>Path</h1>
-  <p class="poster-tag">Read the story. Earn the trophies as the scenes demand them. Nothing spoiled before its time.</p>
-</header>
-
-<main>
-  <section id="resume-hero" class="resume-hero" aria-live="polite"></section>
-
-  <section class="how">
-    <h2>How this walkthrough reads</h2>
-    <p>One scene at a time, in story order — like turning pages of a script. A chapter only
-    lifts its fog once you mark the chapter before it done, so trophy names and scene notes
-    stay hidden until the story itself would reveal them. Side pursuits that never belonged
-    to any chapter wait for you at the back, Off The Script.</p>
-  </section>
-
-  <nav id="chapter-index" class="chapter-index" aria-label="Chapters"></nav>
-
-  <section id="reader" class="reader" hidden></section>
-
-  <section id="offscript" class="offscript"></section>
-
-  <section class="ledger">
-    <h2>Your ledger</h2>
-    <p>Your place in the story lives only in this browser. Take a copy with you, bring one back, or wipe the slate and read from page one.</p>
-    <div class="ledger-actions">
-      <button id="export-btn" type="button">Export my place</button>
-      <label class="import-label">Import a place<input id="import-file" type="file" accept=".json,application/json" hidden></label>
-      <button id="reset-btn" type="button" class="danger">Start fresh — wipe my place</button>
+<main class="column">
+  <section id="hero" aria-label="Resume your story"></section>
+  <nav id="rail" aria-label="Chapter progress"></nav>
+  <section class="toolbar" aria-label="Reading controls">
+    <div class="kinds" role="group" aria-label="Filter the off-script list by kind">
+      <button type="button" data-kind="all" class="kind is-active">All</button>
+      <button type="button" data-kind="story" class="kind">Story</button>
+      <button type="button" data-kind="missable" class="kind">Missable</button>
+      <button type="button" data-kind="collectibles" class="kind">Collectibles</button>
+      <button type="button" data-kind="activities" class="kind">Activities</button>
     </div>
-    <p id="ledger-note" class="ledger-note"></p>
+    <label class="spoiler-toggle">
+      <input type="checkbox" id="spoilers" checked>
+      Spoiler fog on
+    </label>
   </section>
+  <section id="reader" aria-label="The story, beat by beat"></section>
+  <section id="offscript" aria-label="Off the script"></section>
+  <footer class="account">
+    <h2>Your place in the story</h2>
+    <p>Progress lives only in this browser. Take it with you, or leave it behind.</p>
+    <div class="account-actions">
+      <button type="button" id="export">Export progress</button>
+      <label class="import-button">Import progress
+        <input type="file" id="import" accept="application/json" hidden>
+      </label>
+      <button type="button" id="wipe" class="danger">Start fresh — wipe my place</button>
+    </div>
+  </footer>
 </main>
-
-<footer>
-  <p>Platinum Path — a fan-made, story-first walkthrough. Trophy names and descriptions are the official list; every scene note is written for this guide. Works fully offline.</p>
-</footer>
-
 <script type="module" src="app.js"></script>
 </body>
 </html>

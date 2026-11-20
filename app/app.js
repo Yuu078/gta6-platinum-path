@@ -1,148 +1,178 @@
-// app.js — boot, the resume bookmark, and the chapter index.
-// The story is the interface: a poster up top, your bookmark beneath it,
-// then the chapters in order, each keeping its secrets until its turn.
+// Platinum Path — composition. This module loads the trophy data, restores
+// (or seeds) the reader's place, and assembles the page: the RESUME SCENE
+// hero, the per-chapter dot rail, the story reader, and the OFF THE SCRIPT
+// closing section. There is deliberately no global percentage and no
+// "next up" panel anywhere: progress is told per chapter, in dots.
 
-import { loadState, saveState, wipeState, exportState, importState } from './progress.js';
-import { createReader, chapterBeats } from './reader.js';
-import { renderOffScript } from './offscript.js';
+import { createReader, CHAPTER_NAMES } from './reader.js';
+import { renderOffscript } from './offscript.js';
+import {
+  loadState,
+  saveState,
+  wipeState,
+  exportState,
+  importState,
+  buildScreenIndex,
+} from './progress.js';
 
-const params = new URLSearchParams(location.search);
-const heroEl = document.getElementById('resume-hero');
-const indexEl = document.getElementById('chapter-index');
-const readerEl = document.getElementById('reader');
-const offEl = document.getElementById('offscript');
-const noteEl = document.getElementById('ledger-note');
+const response = await fetch('data/trophies.json');
+const data = await response.json();
 
-let data = null;
-let state = null;
-let reader = null;
-let offView = null;
+let state = loadState(data);
+let kindFilter = 'all';
 
-const isFogged = (n) => n > 0 && !state.doneChapters.includes(n - 1);
-const chapterOf = (n) => data.chapters.find((c) => c.n === n);
-const trophyOf = (id) => data.trophies.find((t) => t.id === id);
+const heroMount = document.getElementById('hero');
+const railMount = document.getElementById('rail');
+const readerMount = document.getElementById('reader');
+const offscriptMount = document.getElementById('offscript');
+offscriptMount.classList.add('offscript');
+
+const screens = buildScreenIndex(data);
+
+function chapterBeats(chapter) {
+  return data.trophies.filter((t) => t.chapter === chapter);
+}
 
 function renderHero() {
-  if (state.last && trophyOf(state.last.beatId)) {
-    const ch = chapterOf(state.last.chapter);
-    const beat = trophyOf(state.last.beatId);
-    heroEl.innerHTML = `
-      <p class="rh-kicker">Resume Scene</p>
-      <p class="rh-scene">${ch.title}</p>
-      <p class="rh-beat">You left the story at: ${beat.beat} · ${beat.name}</p>
-      <button type="button" class="primary" id="resume-btn">Pick the scene back up</button>`;
-    heroEl.querySelector('#resume-btn').addEventListener('click', () => {
-      reader.open(state.last.chapter, state.last.beatId);
-    });
-  } else {
-    heroEl.innerHTML = `
-      <p class="rh-kicker">Resume Scene</p>
-      <p class="rh-scene">No bookmark yet — the story has not begun.</p>
-      <p class="rh-beat">It starts with a fishing trip in the Prologue, and it only gets stranger from there.</p>
-      <button type="button" class="primary" id="resume-btn">Begin at the Prologue</button>`;
-    heroEl.querySelector('#resume-btn').addEventListener('click', () => reader.open(0));
+  heroMount.replaceChildren();
+  const hero = document.createElement('div');
+  hero.className = 'hero';
+
+  const kicker = document.createElement('p');
+  kicker.className = 'kicker';
+  kicker.textContent = 'Grand Theft Auto VI · PlayStation 5';
+  const title = document.createElement('h1');
+  const sunset = document.createElement('span');
+  sunset.className = 'sunset';
+  sunset.textContent = 'Platinum Path';
+  title.append(sunset);
+  const intro = document.createElement('p');
+  intro.textContent = 'Not a checklist. A screenplay you read down a timeline, in the order Leonida tells it — trophies hiding as tags inside the story, until the platinum is simply how the story ends. Points of no return interrupt the reading before they can hurt you.';
+
+  const resume = document.createElement('div');
+  resume.className = 'resume-card';
+  const scene = document.createElement('div');
+  scene.className = 'scene display';
+  const bookmarked = screens[state.bookmark.screen] ?? screens[0];
+  const small = document.createElement('small');
+  small.textContent = 'Resume scene';
+  const sceneName = document.createElement('span');
+  sceneName.textContent = bookmarked.type === 'interlude'
+    ? `Point of no return — ${bookmarked.trophy.name}`
+    : `${CHAPTER_NAMES[bookmarked.chapter]} · ${bookmarked.trophy.beat}`;
+  scene.append(small, sceneName);
+  const resumeButton = document.createElement('button');
+  resumeButton.type = 'button';
+  resumeButton.className = 'resume-button';
+  resumeButton.textContent = 'Resume reading →';
+  resumeButton.addEventListener('click', () => {
+    reader.goTo(state.bookmark.screen);
+    readerMount.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+  resume.append(scene, resumeButton);
+
+  hero.append(kicker, title, intro, resume);
+  heroMount.append(hero);
+}
+
+function renderRail() {
+  railMount.replaceChildren();
+  railMount.className = 'rail';
+  for (let chapter = 0; chapter <= 5; chapter += 1) {
+    const row = document.createElement('div');
+    row.className = 'rail-row';
+    const name = document.createElement('span');
+    name.className = 'chapter-name';
+    name.textContent = CHAPTER_NAMES[chapter];
+    const dots = document.createElement('span');
+    dots.className = 'dots';
+    for (const t of chapterBeats(chapter)) {
+      const dot = document.createElement('span');
+      dot.className = state.earned.includes(t.id) ? 'dot earned' : 'dot';
+      dot.title = t.name;
+      dots.append(dot);
+    }
+    row.append(name, dots);
+    if (state.chaptersDone.includes(chapter)) {
+      const flag = document.createElement('span');
+      flag.className = 'done-flag';
+      flag.textContent = 'Done';
+      row.append(flag);
+    }
+    railMount.append(row);
   }
 }
 
-function dotsFor(n) {
-  return chapterBeats(data, n).map((b) => {
-    const cls = state.earned.includes(b.id) ? 'earned' : state.read.includes(b.id) ? 'read' : '';
-    return `<span class="dot ${cls}" title="${b.name}"></span>`;
-  }).join('');
+function refreshChrome() {
+  renderHero();
+  renderRail();
 }
 
-function renderIndex() {
-  indexEl.innerHTML = data.chapters.map((ch) => {
-    const fog = isFogged(ch.n);
-    const beats = chapterBeats(data, ch.n);
-    const done = state.doneChapters.includes(ch.n);
-    return `
-      <article class="chapter-card ${fog ? 'fogged' : ''}" id="chapter-${ch.n}">
-        <span class="big-num">${ch.n}</span>
-        <h3>${ch.title}${done ? '<span class="done-badge">Done</span>' : ''}</h3>
-        <p class="tagline">${ch.tagline}</p>
-        <div class="${fog ? 'fog-blur' : ''}">
-          <p class="summary">${ch.summary}</p>
-          <ul class="beat-names">${beats.map((b) => `<li>${b.beat} — ${b.name}</li>`).join('')}</ul>
-        </div>
-        ${fog ? '<p class="fog-note">Under fog. Mark the chapter before this one done, and these pages clear.</p>' : ''}
-        <div class="dots">${dotsFor(ch.n)}</div>
-        <div class="card-actions">
-          <button type="button" class="primary" data-read="${ch.n}">${fog ? 'Peek at the fog' : 'Read this chapter'}</button>
-          <button type="button" data-toggle-done="${ch.n}">${done ? 'Undo done' : 'Mark chapter done'}</button>
-        </div>
-      </article>`;
-  }).join('');
-  indexEl.querySelectorAll('[data-read]').forEach((b) => {
-    b.addEventListener('click', () => {
-      const n = Number(b.dataset.read);
-      const resumeHere = state.last && state.last.chapter === n ? state.last.beatId : undefined;
-      reader.open(n, resumeHere);
-    });
+const reader = createReader({
+  mount: readerMount,
+  data,
+  state,
+  onStateChange: refreshChrome,
+});
+
+let offscriptView = null;
+function drawOffscript() {
+  offscriptView = renderOffscript({
+    mount: offscriptMount,
+    data,
+    state,
+    kindFilter,
+    onStateChange: refreshChrome,
   });
-  indexEl.querySelectorAll('[data-toggle-done]').forEach((b) => {
-    b.addEventListener('click', () => {
-      const n = Number(b.dataset.toggleDone);
-      if (state.doneChapters.includes(n)) state.doneChapters = state.doneChapters.filter((x) => x !== n);
-      else state.doneChapters.push(n);
-      onChange();
-    });
+}
+drawOffscript();
+
+for (const button of document.querySelectorAll('.kind')) {
+  button.addEventListener('click', () => {
+    kindFilter = button.dataset.kind;
+    for (const other of document.querySelectorAll('.kind')) {
+      other.classList.toggle('is-active', other === button);
+    }
+    drawOffscript();
+    offscriptMount.scrollIntoView({ behavior: 'smooth', block: 'start' });
   });
 }
 
-function onChange(redrawOff = true) {
+const spoilerToggle = document.getElementById('spoilers');
+spoilerToggle.checked = state.hideSpoilers;
+spoilerToggle.addEventListener('change', () => {
+  state.hideSpoilers = spoilerToggle.checked;
   saveState(state);
-  renderHero();
-  renderIndex();
-  if (redrawOff && offView) offView.redraw();
+  reader.render();
+});
+
+document.getElementById('export').addEventListener('click', () => exportState(state));
+document.getElementById('import').addEventListener('change', async (event) => {
+  const file = event.target.files[0];
+  if (!file) return;
+  state = await importState(file);
+  location.reload();
+});
+document.getElementById('wipe').addEventListener('click', () => {
+  state = wipeState();
+  location.reload();
+});
+
+refreshChrome();
+
+// Deep links for readers (and screenshots): ?view=reader starts at the
+// bookmarked scene, ?view=drawer opens the bookmarked beat's drawer,
+// ?view=missable at the first point of no return, and ?view=offscript at
+// the closing index.
+const view = new URLSearchParams(location.search).get('view');
+if (view === 'reader') {
+  reader.goTo(state.bookmark.screen);
+} else if (view === 'drawer') {
+  reader.goTo(state.bookmark.screen);
+  reader.openDrawerAt(state.bookmark.screen);
+} else if (view === 'missable') {
+  const first = screens.findIndex((s) => s.type === 'interlude');
+  if (first >= 0) reader.goTo(first);
+} else if (view === 'offscript') {
+  offscriptMount.scrollIntoView();
 }
-
-function wireLedger() {
-  document.getElementById('export-btn').addEventListener('click', () => {
-    exportState(state);
-    noteEl.textContent = 'Your place is saved to a file. Keep it somewhere safe.';
-  });
-  document.getElementById('reset-btn').addEventListener('click', () => {
-    Object.assign(state, wipeState());
-    if (reader) reader.close();
-    onChange();
-    noteEl.textContent = 'Wiped clean. No bookmarks, no marks — page one is waiting whenever you are.';
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  });
-  document.getElementById('import-file').addEventListener('change', (ev) => {
-    const file = ev.target.files[0];
-    if (!file) return;
-    importState(file, (next) => {
-      Object.assign(state, next);
-      onChange();
-      noteEl.textContent = 'Bookmark restored. The story picks up where that file left it.';
-    }, () => {
-      noteEl.textContent = 'That file does not look like a saved place. Nothing was changed.';
-    });
-  });
-}
-
-async function boot() {
-  const res = await fetch('data/trophies.json');
-  data = await res.json();
-  state = loadState(data, params.get('demo') === '1');
-  reader = createReader({ container: readerEl, data, state, isFogged, onChange: () => onChange(false) });
-  // reader shares the live state object; after a wipe we rebind below
-  renderHero();
-  renderIndex();
-  offView = renderOffScript({ container: offEl, data, state, onChange: () => onChange(false) });
-  wireLedger();
-
-  if (params.get('scene')) {
-    reader.openScene(Number(params.get('scene')));
-  } else if (params.get('chapter') !== null && params.get('chapter') !== '') {
-    const n = Number(params.get('chapter'));
-    const resumeHere = state.last && state.last.chapter === n ? state.last.beatId : undefined;
-    reader.open(n, resumeHere);
-  } else if (params.get('view') === 'offscript') {
-    document.body.classList.add('offscript-focus');
-    setTimeout(() => offEl.scrollIntoView(), 60);
-  }
-}
-
-boot();

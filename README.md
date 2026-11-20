@@ -1,71 +1,32 @@
-# Platinum Path — A Story-First GTA VI Trophy Walkthrough
+# Platinum Path — a story-first reader for the GTA VI platinum
 
-Most trophy guides hand you a spreadsheet and wish you luck. Platinum Path hands you a story.
+[![Competition](https://make.fun/badge/gta6-trophy-guide-01.svg)](https://make.fun/competitions/gta6-trophy-guide-01)
+[![Rank](https://make.fun/badge/gta6-trophy-guide-01/Yuu078/gta6-platinum-path/rank.svg)](https://make.fun/competitions/gta6-trophy-guide-01)
+[![Reward](https://make.fun/badge/gta6-trophy-guide-01/Yuu078/gta6-platinum-path/reward.svg)](https://make.fun/competitions/gta6-trophy-guide-01)
 
-The walkthrough follows Leonida the way the game tells it: a Prologue, four chapters, and
-The Final Ride. You read it one scene at a time — a single story beat per screen, turned
-like pages with buttons, arrow keys, or a swipe. Each scene names the trophy the story is
-about to hand you, explains it in plain words, and lists the steps, the source, and
-occasionally a set-side tip earned the hard way.
+Most trophy guides hand you a spreadsheet and wish you luck. **Platinum Path** hands you a screenplay.
 
-## How it protects you from spoilers
+The 55 trophies of Grand Theft Auto VI are arranged the way the game actually tells them: 20 story trophies become beats on a vertical cinematic timeline, in six chapters — Prologue, Chapters 1–4, and The Final Ride. The story text is the main object on the page. There are no trophy cards: each trophy hides inside its beat's paragraph as an inline trigger tag, coloured gold, silver or bronze, and tapping it slides a drawer over the page with the technical work — the guide, the steps, the difficulty, the named source. Every beat is also marked with who carries the scene: Lucia, Jason, or the two of them together. The guides are written in the voice of the scenes themselves — right after this cutscene, before you leave that room — because that is when you actually need them.
 
-Chapter titles are always visible, but a chapter's scenes and trophy names stay under fog
-until you mark the previous chapter done. Nothing is revealed before the story itself
-would reveal it. And when a scene can only ever be played once, the reader stops you one
-page earlier with a full **Point of No Return** interlude: make a manual save, read the
-reason, then turn the page when you are ready.
+Five trophies can be lost for a whole playthrough. They do not hide in a filter: they interrupt the timeline as full-width **POINT OF NO RETURN** cards that tell you to make a manual save and explain exactly why the moment will not come again.
 
-## Off The Script
+Spoilers are fog. A chapter's beats and trophy names stay blurred until you mark the previous chapter done — or until you lift the fog yourself with the spoiler toggle. There is no global percentage and no "next up" panel anywhere. Progress is told per chapter, in dots, the way a reader actually feels it: this chapter is finished, this one is under way.
 
-Not everything belongs to a chapter. Collectibles, activities, stunt counts, vault jobs,
-strange nights, the 100% completion marathon and the platinum itself live in a closing
-section called **Off The Script**, after the story, with its own search and grade filter.
+When you come back, the **RESUME SCENE** hero at the top remembers your bookmark and drops you back into the exact scene you left. A first visit is seeded mid-story — chapters 0–1 done, chapter 2 under way — so the timeline opens the way a real run feels. Add `?demo=1` to see that seeded state at any time, use "Start fresh — wipe my place" to begin again from a blank page, and export or import your progress as a JSON file whenever you like.
 
-## Your place in the story
+The book closes with **OFF THE SCRIPT**: the other 35 trophies — the hunts, heists, collections and strange little errands that live outside the chapters — as a compact back-of-book index, one row per trophy, searchable and grade-filterable, each row opening the same drawer and checkable as earned.
 
-A **Resume Scene** bookmark at the top always shows where you left the story and drops you
-back into the reader at that exact scene. Progress is kept per chapter only — a row of
-marks under each chapter, one per scene, filled as you read and earn. There is deliberately
-no global percentage anywhere: stories are finished, not filled.
+## The entry
 
-First visit? The guide opens mid-walkthrough on purpose — the Prologue and Chapter 1 are
-done, Chapter 2 is under way — so you can see it alive. Use **Start fresh** in the ledger
-to wipe it to a truly empty page one. Your place can also be exported and imported as a
-small JSON file. Everything is stored only in your browser.
+- `app/` — the guide itself: static, offline, no build step, no network requests. Open it with `node serve.ts` and visit http://localhost:8080 (add `?demo=1` for the seeded state).
+- `app/data/trophies.json` — all 55 trophies with their canonical names, descriptions and grades, plus a hand-written guide, steps, difficulty, time estimate and a named source for every single one.
+- `main.ts` — copies `app/` and `screenshots/` to the output directory, verifies the trophy data read-only, and writes `dossier.json` with the vendored make.fun library.
+- `screenshots/` — four real renders of the app in its seeded demo state: the cover with its resume scene and the top of the timeline, a timeline beat with its trophy drawer open, a point-of-no-return interlude, and the off-script index.
 
-## Running it
-
-Serve the app locally:
+Run it with:
 
 ```
-node serve.ts            # then open the printed local address, port 8080 by default
-node serve.ts --port 8123
+mkdir -p out && MAKEFUN_OUTPUT_DIR=out node main.ts
 ```
 
-Build the submission dossier:
-
-```
-MAKEFUN_OUTPUT_DIR=out node main.ts
-```
-
-The build first verifies the guide data — 55 trophies, each with exactly one home
-(a story chapter, or Off The Script), no empty chapters — and prints a one-line PASS
-summary before writing anything.
-
-## Data and sources
-
-Trophy names, descriptions and grades are the official PlayStation 5 list of 55 trophies
-for Grand Theft Auto VI (list dated 2026-11-18). Every scene guide, step list and tip is
-original writing for this guide. Each trophy credits one reference source by name —
-rotating among PowerPyx, PSNProfiles, PlayStationTrophies.org, TrueTrophies, Exophase,
-the GTA Wiki (Fandom) and Push Square. The app is fully offline: system fonts only, no
-external requests, the only file it loads is its own `app/data/trophies.json`.
-
-## The competition
-
-[![Competition badge](https://make.fun/badge/gta6-trophy-guide-01.svg)](https://make.fun/competitions/gta6-trophy-guide-01)
-[![Rank badge](https://make.fun/badge/gta6-trophy-guide-01/Yuu078/gta6-platinum-path/rank.svg)](https://make.fun/competitions/gta6-trophy-guide-01)
-[![Reward badge](https://make.fun/badge/gta6-trophy-guide-01/Yuu078/gta6-platinum-path/reward.svg)](https://make.fun/competitions/gta6-trophy-guide-01)
-
-Built for the make.fun competition `gta6-trophy-guide-01`.
+A healthy run prints: `PASS: 55 trophies verified — 20 story beats in 6 chapters, 35 off the script, 5 points of no return`

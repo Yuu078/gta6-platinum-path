@@ -2,292 +2,282 @@
   "game": "Grand Theft Auto VI",
   "platform": "PlayStation 5",
   "list": "the official 55 trophies, 2026-11-18",
-  "chapters": [
-    {
-      "n": 0,
-      "slug": "prologue",
-      "title": "Prologue",
-      "tagline": "Where the water first turns red",
-      "summary": "The opening hours on the Leonida coast. A fishing trip, a first taste of freedom, and the partnership that carries the whole story begins here."
-    },
-    {
-      "n": 1,
-      "slug": "chapter-1",
-      "title": "Chapter 1 — New Shores",
-      "tagline": "Paradise, with a price tag",
-      "summary": "Settling into Vice City and its sprawl. Learn the systems, meet the first contacts, and start every long collection while the map is still small."
-    },
-    {
-      "n": 2,
-      "slug": "chapter-2",
-      "title": "Chapter 2 — Easy Money",
-      "tagline": "Every shortcut has a toll",
-      "summary": "Heists get louder and strangers get stranger. This is the chapter to bank cash, master ranges and races, and clear early stranger strands."
-    },
-    {
-      "n": 3,
-      "slug": "chapter-3",
-      "title": "Chapter 3 — Headlines",
-      "tagline": "Famous for all the wrong reasons",
-      "summary": "The story goes statewide. Airport trouble, televised chaos and mid-game strands all land here, alongside the bulk of vehicle and activity work."
-    },
-    {
-      "n": 4,
-      "slug": "chapter-4",
-      "title": "Chapter 4 — Top of the World",
-      "tagline": "Nowhere left to climb",
-      "summary": "The last full chapter before the endgame. Finish the stranger arcs, rob the hardest targets, and leave almost nothing for the cleanup."
-    },
-    {
-      "n": 5,
-      "slug": "finale",
-      "summary": "The final mission and the loose ends that only open once the credits are close. Choices made here echo long after the story ends, into everything filed Off The Script.",
-      "tagline": "You gotta know when to get off",
-      "title": "The Final Ride"
-    }
-  ],
   "trophies": [
     {
       "id": 1,
       "name": "Vice Got a Price!",
       "description": "Congratulations! You're a Leonida Legend.",
       "grade": "platinum",
-      "chapter": null,
-      "beat": "The platinum itself",
-      "kind": "finale",
-      "guide": "This is the reward for finishing everything else on the list, so treat it as a victory lap rather than a task. Work chapter by chapter through this guide, keep the missable warnings in view, and the platinum unlocks the moment your fifty-fourth other trophy lands.",
+      "guide": "When the final cutscene fades and the credits finish rolling, this is the trophy the whole book has been walking toward. It cannot be chased directly: it arrives on its own once every other scene, errand and detour in Leonida is complete. Read the story first, sweep the off-script index last, and let the legend price itself.",
       "steps": [
-        "Clear every story beat in chapters 0 to 5 in order",
-        "Finish all cleanup listed in the epilogue chapter",
-        "Open your trophy list and watch the platinum pop last"
+        "Earn every other trophy on the list",
+        "Let the story trophies land in chapter order",
+        "Sweep the off-script index last"
       ],
       "source": "PowerPyx",
-      "missable": null,
-      "offscript": true
+      "kind": "story",
+      "difficulty": 5,
+      "minutes": 9000,
+      "chapter": 5,
+      "lead": "duo",
+      "beat": "The Legend Is Priced",
+      "beatText": "The credits have rolled and Leonida is still standing. This is the moment the whole run has been walking toward, when the pair stop being fugitives in someone else's story and become the legend the platinum is named for."
     },
     {
       "id": 2,
       "name": "Just Like Paradise",
       "description": "Complete Gone Fishing.",
       "grade": "bronze",
-      "chapter": 0,
-      "beat": "Opening mission: Gone Fishing",
-      "kind": "story",
-      "guide": "The very first mission doubles as your tutorial for movement, driving and the partner system. Take it slowly, follow every on-screen prompt, and do not rush the fishing section because later challenges with Cal build directly on what you learn here.",
+      "guide": "The game opens on the water, and Gone Fishing teaches you its language while pretending to be a day off. Stay in the scene: follow the prompts as they come, take the quiet casting moments slowly, and do not go exploring yet. Right after the closing cutscene of the trip, the trophy lands.",
       "steps": [
-        "Start a new game and follow the opening cutscene",
-        "Complete the fishing and driving tutorials as prompted",
-        "Finish Gone Fishing to close the prologue beat"
+        "Start a new game and play Gone Fishing",
+        "Follow the on-screen prompts to learn the controls",
+        "Finish the mission to earn the trophy"
       ],
       "source": "PSNProfiles",
-      "missable": null,
-      "tip": "Tip: Leave the prologue with full health and a saved game in a second slot; it becomes your clean restart point for any early missable."
+      "kind": "story",
+      "difficulty": 1,
+      "minutes": 25,
+      "chapter": 0,
+      "lead": "duo",
+      "beat": "Gone Fishing",
+      "beatText": "The story opens on the water, all heat and stillness, before Vice City pulls the pair back in. It is the calm first page of the book: a fishing trip that quietly introduces the two people you will spend the whole game protecting."
     },
     {
       "id": 3,
       "name": "Paradise Lost",
       "description": "Complete Chapter 1.",
       "grade": "bronze",
-      "chapter": 1,
-      "beat": "Chapter 1 finale",
-      "kind": "story",
-      "guide": "Play through every main mission in the first chapter and this pops at the chapter end card. Before you move on, use the newly opened districts to start your vehicle discoveries and activity sampling so the long grinds never pile up at the end.",
+      "guide": "Chapter 1 plays like the last week of a holiday you cannot afford to extend. Nothing here needs preparation: follow the mission markers as the pair settle back into the city, and let each scene hand you to the next. The moment the chapter's final cutscene ends, the trophy is yours.",
       "steps": [
-        "Complete all Chapter 1 story missions in order",
-        "Unlock the first safehouse and save your game",
-        "Start two or three side activities before starting Chapter 2"
+        "Play the main missions in order",
+        "Learn the city layout as you go",
+        "Finish the last mission of Chapter 1"
       ],
       "source": "PlayStationTrophies.org",
-      "missable": null
+      "kind": "story",
+      "difficulty": 1,
+      "minutes": 180,
+      "chapter": 1,
+      "lead": "duo",
+      "beat": "Paradise Lost",
+      "beatText": "By the end of Chapter 1 the holiday is over. A door that looked open quietly locks behind the pair, and paradise starts charging rent — the story's first real turn from freedom into consequence."
     },
     {
       "id": 4,
       "name": "T**s Ass Drug Money",
       "description": "Complete Chapter 2.",
       "grade": "bronze",
-      "chapter": 2,
-      "beat": "Chapter 2 finale",
-      "kind": "story",
-      "guide": "The second chapter leans into heists and money, so finish its missions and let the completion trophy land naturally. Spend the chapter payout wisely because several later trophies ask you to spend, launder and invest large amounts across Leonida.",
+      "guide": "As Chapter 2 opens, the money starts moving and the missions grow teeth. Make a manual save on the chapter break — later pages of this book will thank you — then play the main thread straight through. When the closing scene of the chapter cuts to black, the trophy follows it.",
       "steps": [
-        "Complete all Chapter 2 story missions in order",
-        "Bank your chapter earnings instead of spending them at once",
-        "Note which stranger strands opened during this chapter"
+        "Make a manual save at the chapter start",
+        "Play the main missions in order",
+        "Finish the last mission of Chapter 2"
       ],
       "source": "TrueTrophies",
-      "missable": null
+      "kind": "story",
+      "difficulty": 2,
+      "minutes": 210,
+      "chapter": 2,
+      "lead": "duo",
+      "beat": "The Money Moves",
+      "beatText": "Chapter 2 smells of fast cash and bad company. The pair stop surviving and start earning, and every dollar in this chapter comes with a name attached — names that will matter much later."
     },
     {
       "id": 5,
       "name": "Vice City, Baby!",
       "description": "Complete Chapter 3.",
       "grade": "bronze",
-      "chapter": 3,
-      "beat": "Chapter 3 finale",
-      "kind": "story",
-      "guide": "Chapter three is the midpoint where the map and the stakes both widen considerably. Clear its missions, then pause for a cleanup sweep of races, vehicles and stranger work while the endgame is still comfortably far away.",
+      "guide": "Midway through the book the city finally opens at full volume, neon and all. Between the big scenes of Chapter 3 there is room to breathe — a few off-script errands fit naturally in the gaps — but nothing here can be lost for good. Play to the chapter finale and the trophy arrives with it.",
       "steps": [
-        "Complete all Chapter 3 story missions in order",
-        "Do a mid-game cleanup sweep before continuing",
-        "Check your activity and collectible counts at the chapter break"
+        "Play the main missions in order",
+        "Explore the newly opened districts",
+        "Finish the last mission of Chapter 3"
       ],
       "source": "Exophase",
-      "missable": null
+      "kind": "story",
+      "difficulty": 2,
+      "minutes": 240,
+      "chapter": 3,
+      "lead": "duo",
+      "beat": "Vice City, Baby!",
+      "beatText": "This is the chapter the trailers promised: neon, noise and the city at full volume. Underneath the celebration the net is tightening, and the pair are having too much fun to notice it yet."
     },
     {
       "id": 6,
       "name": "Top Of The World, Ma",
       "description": "Complete Chapter 4.",
       "grade": "bronze",
-      "chapter": 4,
-      "beat": "Chapter 4 finale",
-      "kind": "story",
-      "guide": "Finishing the fourth chapter puts you on the doorstep of the finale, so this is your last relaxed chance to tidy up. After the chapter trophy pops, resist pushing straight into the final missions until your stranger strands and vault robberies are nearly done.",
+      "guide": "Chapter 4 is the climb, and its late scenes hit harder than anything before them. Before the final run of missions, stop at an Ammu-Nation, top up armour, and keep your partner in sight when the game splits the pair up. Survive the chapter's last scene and the trophy lands on the cut.",
       "steps": [
-        "Complete all Chapter 4 story missions in order",
-        "Review every remaining silver trophy before the finale",
-        "Save in a separate slot at the chapter break"
+        "Restock ammo and armour before late missions",
+        "Play the main missions in order",
+        "Finish the last mission of Chapter 4"
       ],
       "source": "GTA Wiki (Fandom)",
-      "missable": null
+      "kind": "story",
+      "difficulty": 3,
+      "minutes": 260,
+      "chapter": 4,
+      "lead": "duo",
+      "beat": "Top Of The World, Ma",
+      "beatText": "For one bright moment the pair can see the whole state from where they stand. Chapter 4 lets them enjoy the view — and lets the reader feel exactly how far there is left to fall."
     },
     {
       "id": 7,
       "name": "You Gotta Know When to Get Off",
       "description": "Complete the final mission.",
       "grade": "gold",
-      "chapter": 5,
-      "beat": "The final mission",
-      "kind": "finale",
-      "guide": "The closing mission is the point of no return for several story-linked moments, so arrive prepared and keep a manual save from before it starts. Play it in one sitting if you can, make your choices deliberately, and let this gold trophy mark the true end of the story.",
+      "guide": "The last page of the story asks everything the game has taught you, all at once. Walk into the final mission with full health, full armour and your best weapons already in hand, and do not rush the closing sequences — let them play. The gold lands as the mission ends.",
       "steps": [
-        "Make a manual save before starting the final mission",
-        "Stock ammo, armour and snacks for both characters",
-        "Complete the final mission and watch the credits"
+        "Prepare with full health and armour",
+        "Play the final mission to its end",
+        "Watch the closing scenes for the trophy"
       ],
       "source": "Push Square",
-      "missable": null,
-      "tip": "Tip: Turn off autosave prompts in your head, not in the menu: make the manual save, then commit to the finale without dipping back into free roam."
+      "kind": "story",
+      "difficulty": 3,
+      "minutes": 45,
+      "chapter": 5,
+      "lead": "duo",
+      "beat": "The Final Ride",
+      "beatText": "Every road in Leonida has been leading to this one drive. The final mission asks the only question the whole story has really been asking: when the ride ends, who is still sitting beside you?"
     },
     {
       "id": 8,
       "name": "Trust",
       "description": "Complete Breakfast Run.",
       "grade": "bronze",
-      "chapter": 1,
-      "beat": "Mission: Breakfast Run",
-      "kind": "story",
-      "guide": "An early mission built around trust between the two leads, and a gentle introduction to timed driving under pressure. Learn the route rather than flooring it everywhere, because clean lines beat raw speed on the narrow morning streets.",
+      "guide": "Right after the prologue's quiet opening, this small morning errand shows you how the pair move as one. Lucia sets the pace here: keep the drive clean, stay on her line through traffic, and resist the urge to improvise. The scene closes gently, and the trophy closes with it.",
       "steps": [
-        "Accept the Breakfast Run mission in Chapter 1",
-        "Follow the route markers and keep the vehicle intact",
-        "Deliver on time to finish the mission"
+        "Accept the Breakfast Run mission",
+        "Stay close to your partner throughout",
+        "Finish the errand to earn the trophy"
       ],
       "source": "PowerPyx",
-      "missable": null,
-      "tip": "Tip: Practise the Breakfast Run route once at cruising speed so the timed attempt feels slower than it really is."
+      "kind": "story",
+      "difficulty": 1,
+      "minutes": 15,
+      "chapter": 0,
+      "lead": "lucia",
+      "beat": "Breakfast Run",
+      "beatText": "A small morning errand, the kind couples run a thousand times. In the middle of it the game quietly states its thesis: these two trust each other with the ordinary things, which is why the extraordinary things will hurt."
     },
     {
       "id": 9,
       "name": "Break the Bank",
       "description": "Complete The Cartel Heist.",
       "grade": "bronze",
-      "chapter": 2,
-      "beat": "Mission: The Cartel Heist",
-      "kind": "story",
-      "guide": "The first full-scale heist of the story and a template for the vault robberies you will do later in free roam. Pay attention to the crew roles and escape staging here, since the same ideas make the optional bank jobs far easier.",
+      "guide": "Halfway through Chapter 2 the book turns into a heist film. At the planning board, read every approach before choosing — the loud entry is shorter but the escape runs hotter — and once the alarm sounds, keep moving and never double back for dropped cash. Any route through the heist earns the trophy when you clear the area.",
       "steps": [
-        "Complete the heist setup missions when they appear",
-        "Play The Cartel Heist through its escape phase",
-        "Escape the wanted level to finish the mission"
+        "Complete the heist preparation tasks",
+        "Run The Cartel Heist from start to finish",
+        "Escape the area to close the mission"
       ],
       "source": "PSNProfiles",
-      "missable": null
+      "kind": "story",
+      "difficulty": 3,
+      "minutes": 40,
+      "chapter": 2,
+      "lead": "duo",
+      "beat": "The Cartel Heist",
+      "beatText": "The first time the pair stop stealing to survive and start stealing to win. The Cartel Heist is loud, greedy and joyful — and it puts their faces in front of exactly the wrong people."
     },
     {
       "id": 10,
       "name": "Family Matters",
       "description": "Complete Child's Play.",
       "grade": "bronze",
-      "chapter": 2,
-      "beat": "Mission: Child's Play",
-      "kind": "story",
-      "guide": "A quieter, character-led mission in the middle of chapter two that is easy to rush and miss the point of. Slow down, follow the dialogue cues, and complete every optional conversation beat before triggering the closing scene.",
+      "guide": "This Chapter 1 scene slows the book down on purpose, and Lucia carries it. There is no gunfight to prepare for: sit in the conversations, let the kid set the tempo, and play the small moments instead of skipping them. When the scene lets go of you, the trophy has already landed.",
       "steps": [
-        "Start Child's Play from the chapter 2 mission marker",
-        "Follow the family storyline beats in order",
-        "Finish the closing scene to complete the mission"
+        "Start the Child's Play mission",
+        "Follow the story beats to the end",
+        "Finish the mission to earn the trophy"
       ],
       "source": "PlayStationTrophies.org",
-      "missable": null
+      "kind": "story",
+      "difficulty": 1,
+      "minutes": 20,
+      "chapter": 1,
+      "lead": "lucia",
+      "beat": "Child's Play",
+      "beatText": "A mission about family, played at walking pace. Child's Play shows you what the pair are actually fighting to keep — a home, a kid's laughter, a life that does not need sirens in it."
     },
     {
       "id": 11,
       "name": "DWNFALL",
       "description": "Complete Headliners.",
       "grade": "bronze",
-      "chapter": 3,
-      "beat": "Mission: Headliners",
-      "kind": "story",
-      "guide": "Headliners throws you into a loud, public set piece where positioning matters more than firepower. Stay in cover during the headline moments, protect your partner when prompted, and push forward only when the crowd and cameras thin out.",
+      "guide": "By this point in Chapter 3 the pair are famous whether they like it or not, and Headliners plays that fame loud. Stay glued to the objective markers when the crowd chaos starts — side fights here only burn time and health — and save your sprint for the set-piece finish. Reach the final cutscene and the trophy is yours.",
       "steps": [
-        "Start Headliners in Chapter 3 and watch the intro",
-        "Hold cover during the public confrontation",
-        "Complete the escape sequence to finish"
+        "Start the Headliners mission",
+        "Stick to the objective markers",
+        "Finish the closing set piece"
       ],
       "source": "TrueTrophies",
-      "missable": null
+      "kind": "story",
+      "difficulty": 2,
+      "minutes": 30,
+      "chapter": 3,
+      "lead": "lucia",
+      "beat": "Headliners",
+      "beatText": "Fame arrives in Chapter 3 whether the pair want it or not. Headliners turns their faces into headlines, and after this mission there is nowhere in Leonida left to be anonymous."
     },
     {
       "id": 12,
       "name": "Hi-Jacked",
       "description": "Complete VCIA Takedown.",
       "grade": "bronze",
-      "chapter": 3,
-      "beat": "Mission: VCIA Takedown",
-      "kind": "story",
-      "guide": "The airport takedown is also your rehearsal for the unscheduled departure trophy tied to VCIA later in this chapter. Learn the terminal layout and vehicle spawns as you go, because you will be back here under very different circumstances.",
+      "guide": "Late in Chapter 4 the story takes the airport by force. Move hangar to hangar in cover, watch the flanks when the resistance thickens near the end, and hold your heaviest weapons for the final push across open ground. However you carve the route, finishing the takedown earns the trophy.",
       "steps": [
-        "Infiltrate VCIA as the mission directs",
-        "Complete the takedown objectives inside the terminal",
-        "Leave the airport area to finish the mission"
+        "Start the VCIA Takedown mission",
+        "Push through the airport in cover",
+        "Finish the takedown to earn the trophy"
       ],
       "source": "Exophase",
-      "missable": null
+      "kind": "story",
+      "difficulty": 3,
+      "minutes": 35,
+      "chapter": 4,
+      "lead": "duo",
+      "beat": "VCIA Takedown",
+      "beatText": "The airport job is where Chapter 4 stops being a climb and becomes a war. VCIA Takedown is the pair announcing, at maximum volume, that they are done running from anyone."
     },
     {
       "id": 13,
       "name": "Snow Storm",
       "description": "Complete Operation Savage Glory.",
       "grade": "bronze",
-      "chapter": 4,
-      "beat": "Mission: Operation Savage Glory",
-      "kind": "story",
-      "guide": "A heavy combat mission late in the story that rewards a stocked inventory and patience. Bring your best weapons, use Combat Focus deliberately for clustered enemies, and do not waste the scripted heavy-vehicle section by rushing it.",
+      "guide": "This is Chapter 4 at its ugliest: a long operation in several waves with a vehicle section buried in the middle. Before it starts, fill your armour and put snacks on the quick menu; during it, never stray far from your partner for long. Outlast the final wave and the trophy lands with the silence after.",
       "steps": [
-        "Prepare loadouts for both characters beforehand",
-        "Complete Operation Savage Glory objective by objective",
-        "Survive the final push to finish the mission"
+        "Start Operation Savage Glory fully stocked",
+        "Hold position through the waves",
+        "Finish the mission to earn the trophy"
       ],
       "source": "GTA Wiki (Fandom)",
-      "missable": null
+      "kind": "story",
+      "difficulty": 3,
+      "minutes": 40,
+      "chapter": 4,
+      "lead": "duo",
+      "beat": "Operation Savage Glory",
+      "beatText": "A storm with no snow in it — just money, powder and gunfire. Savage Glory is the ugliest job of Chapter 4, and the one that makes the final chapter's choices feel inevitable."
     },
     {
       "id": 14,
       "name": "A Long Road",
       "description": "Attain 100% Completion.",
       "grade": "gold",
-      "chapter": null,
-      "beat": "100 percent completion",
-      "kind": "finale",
-      "guide": "One hundred percent is a checklist marathon covering story, strangers, activities, collectibles and hobbies across the whole state. Use the in-game completion menu as your bible, work category by category in the epilogue, and tick items off in this guide as you confirm each one.",
+      "guide": "Save this for the very end of the book, when the credits have rolled and Leonida is yours to wander. The completion list in the pause menu is the real text here: work it one category at a time — a stranger strand tonight, a collectible sweep tomorrow — instead of chasing the number. This gold usually falls pages after the story is over.",
       "steps": [
-        "Open the 100 percent checklist in the pause menu",
-        "Clear remaining categories one at a time in free roam",
-        "Confirm the counter reaches 100 percent"
+        "Finish the story and all stranger strands",
+        "Clear every activity and collectible category",
+        "Check the completion list until it reads 100%"
       ],
       "source": "Push Square",
-      "missable": null,
+      "kind": "world",
+      "difficulty": 5,
+      "minutes": 6000,
       "offscript": true
     },
     {
@@ -295,36 +285,34 @@
       "name": "Cunning Stunts",
       "description": "Complete 250 Stunts.",
       "grade": "silver",
-      "chapter": null,
-      "beat": "Interlude: stunt sweep",
-      "kind": "activity",
-      "guide": "Two hundred and fifty stunts sounds enormous until you treat stunt jumps as a background habit from chapter one onward. Keep a fast bike or light sports car as your daily driver, clear clusters region by region, and save the final dedicated sweep for this late chapter.",
+      "guide": "Between chapters, when the story gives you an evening off, this is how to spend it. Take a fast, durable car and clear stunt jumps district by district, the way you'd read a map with your fingers. A failed landing costs nothing but ten seconds — turn around and take the jump again while the line is still fresh in your hands.",
       "steps": [
-        "Start logging stunt locations from Chapter 1 onward",
-        "Clear stunts region by region rather than randomly",
-        "Use a light, fast vehicle for the final sweep to 250"
+        "Find a stunt jump and clear it cleanly",
+        "Work through one district at a time",
+        "Repeat until 250 stunts are complete"
       ],
       "source": "PowerPyx",
-      "missable": null,
-      "offscript": true,
-      "tip": "Tip: Mark stunt clusters on your map with custom waypoints in batches of ten, then clear a batch whenever a story mission drops you nearby."
+      "kind": "activities",
+      "difficulty": 3,
+      "minutes": 600,
+      "count": 250,
+      "offscript": true
     },
     {
       "id": 16,
       "name": "Master of None",
       "description": "Try each type of activity once.",
       "grade": "bronze",
-      "chapter": null,
-      "beat": "Interlude: try everything once",
-      "kind": "activity",
-      "guide": "A sampler trophy that asks you to touch every activity type at least once, which is exactly how you should learn Leonida anyway. Do one of each as they unlock in chapter one and you will also discover which activities feed other trophies on this list.",
+      "guide": "Early in the run, when every icon on the map is still a rumour, spend one session as a tourist. Open the map filters, visit one marker of each activity type, and play each only until it registers — a single race, a single round, a single cast of the line. It is the fastest bronze in the book.",
       "steps": [
-        "Open the activities list in the pause menu",
-        "Try each of the 9 activity types once as they unlock",
-        "Confirm every type shows at least one attempt"
+        "Open the map and note each activity type",
+        "Play one session of every type",
+        "Check the list until all types register"
       ],
       "source": "PSNProfiles",
-      "missable": null,
+      "kind": "activities",
+      "difficulty": 1,
+      "minutes": 90,
       "offscript": true
     },
     {
@@ -332,36 +320,33 @@
       "name": "The Shootist",
       "description": "Earn a gold medal in all Shooting Range challenges.",
       "grade": "silver",
-      "chapter": null,
-      "beat": "Interlude: shooting range golds",
-      "kind": "activity",
-      "guide": "Gold medals across every range challenge reward calm aim far more than twitch speed. Learn each weapon category on its easiest challenge first, memorise target patterns, and only chase gold once the layout feels boringly familiar.",
+      "guide": "Duck into the range on the quiet days between story beats, when nobody is shooting back. Each weapon class keeps its own rhythm, so learn one board at a time: run it slow, memorise the target order, then run it for gold. Accuracy bonuses beat raw speed on most boards — breathe before you squeeze.",
       "steps": [
-        "Unlock all shooting range challenges",
-        "Practise each weapon category until patterns are memorised",
-        "Earn gold in every challenge, one range at a time"
+        "Enter the Shooting Range and pick a challenge",
+        "Memorise the target order in practice",
+        "Earn gold on every challenge board"
       ],
       "source": "PlayStationTrophies.org",
-      "missable": null,
-      "offscript": true,
-      "tip": "Tip: Lower your aim sensitivity a notch for the precision ranges; gold medals punish overshooting the target more than slow shooting."
+      "kind": "activities",
+      "difficulty": 4,
+      "minutes": 300,
+      "offscript": true
     },
     {
       "id": 18,
       "name": "Top Fun",
       "description": "Win a Top Fun Drone Race at every location.",
       "grade": "bronze",
-      "chapter": null,
-      "beat": "Interlude: drone races",
-      "kind": "activity",
-      "guide": "Drone races are short, forgiving and best learned one course at a time rather than in a single marathon. Fly the racing line through gates instead of chasing raw speed, and retry immediately while the course is still fresh in your hands.",
+      "guide": "These little drone races hide in the city's tightest gaps, the places the story drives straight past. Fly each course once at sightseeing speed so the gates stop surprising you, then attack it on the second run. You only need first place, not a clean sheet — clipped corners still count at the line.",
       "steps": [
         "Find a Top Fun drone race start point",
-        "Win the race at that location before moving on",
-        "Repeat at all 14 locations across Leonida"
+        "Scout the course with one practice run",
+        "Win the race at every location"
       ],
       "source": "TrueTrophies",
-      "missable": null,
+      "kind": "activities",
+      "difficulty": 3,
+      "minutes": 240,
       "offscript": true
     },
     {
@@ -369,17 +354,16 @@
       "name": "Earn Cash, Not Kudos",
       "description": "Win 20 different races.",
       "grade": "bronze",
-      "chapter": null,
-      "beat": "Interlude: race wins",
-      "kind": "activity",
-      "guide": "Twenty different race wins, not the same easy race twenty times, so variety is the whole point here. Bring a suitably tuned vehicle for each class, learn where rivals brake early, and bank wins steadily from the moment races unlock.",
+      "guide": "Start these on the nights the story leaves you in the city with a full tank. Variety matters more than mastery: each distinct event only counts once, so keep moving to fresh start lines instead of defending a favourite. Begin with the short street sprints and save the long point-to-points for when your car has grown teeth.",
       "steps": [
-        "Enter races across different classes and locations",
-        "Win each race once and note it before repeating favourites",
-        "Reach 20 distinct race wins"
+        "Enter any street race and win a new event each time",
+        "Move to a new event each time",
+        "Repeat until 20 different races are won"
       ],
       "source": "Exophase",
-      "missable": null,
+      "kind": "activities",
+      "difficulty": 2,
+      "minutes": 300,
       "offscript": true
     },
     {
@@ -387,35 +371,36 @@
       "name": "Baited My Tackle",
       "description": "Beat Cal in a fishing challenge.",
       "grade": "bronze",
-      "chapter": null,
-      "beat": "Interlude: fishing with Cal",
-      "kind": "activity",
-      "guide": "Cal taught you to fish in the prologue, and now you have to beat him at his own game. Upgrade your tackle when you can, fish the spots he favours in good weather, and be patient on the reel instead of forcing every catch.",
+      "guide": "On a slow Chapter 1 afternoon, Jason ends up on a dock with Cal and his endless opinions about fish. Watch the water more than the man: strike on the strong bites, ignore the ripples he tries to bait you with, and keep the line tension steady while a fish runs. Out-catch him once and the scene — and the trophy — are yours.",
       "steps": [
-        "Unlock fishing challenges after the prologue",
-        "Challenge Cal at one of his fishing spots",
-        "Out-catch him to win the challenge"
+        "Meet Cal at the fishing spot",
+        "Enter his fishing challenge",
+        "Catch more than Cal before time runs out"
       ],
       "source": "GTA Wiki (Fandom)",
-      "missable": null,
-      "offscript": true
+      "kind": "story",
+      "difficulty": 2,
+      "minutes": 15,
+      "chapter": 1,
+      "lead": "jason",
+      "beat": "Cal and the Water",
+      "beatText": "An old fisherman, a quiet dock and a wager neither side takes seriously. This small Chapter 1 contest is the story breathing — proof the pair can still enjoy an afternoon that asks nothing of them."
     },
     {
       "id": 21,
       "name": "Stick Fiddler",
       "description": "Complete an arcade game.",
       "grade": "bronze",
-      "chapter": null,
-      "beat": "Interlude: arcade break",
-      "kind": "activity",
-      "guide": "The quickest breather on the whole list: find an arcade cabinet, pick the shortest game, and play it to completion. It still counts toward trying every activity type, so pair it with your chapter one sampling run.",
+      "guide": "Somewhere between story beats you'll walk past an arcade cabinet glowing in a bar or a boardwalk. Stop. Pick the shortest game on the machine, learn its one pattern, and play it to its actual end screen — a high score is not a finish. Five minutes later you're back in the story with a bronze in your pocket.",
       "steps": [
-        "Find an arcade with playable cabinets",
-        "Choose the shortest arcade game available",
-        "Play it through to its completion screen"
+        "Find an arcade cabinet in the city",
+        "Choose the shortest game available",
+        "Play it through to completion"
       ],
       "source": "Push Square",
-      "missable": null,
+      "kind": "activities",
+      "difficulty": 1,
+      "minutes": 20,
       "offscript": true
     },
     {
@@ -423,120 +408,134 @@
       "name": "Road to Rehabilitation",
       "description": "Complete the final mission for Andy.",
       "grade": "bronze",
-      "chapter": 3,
-      "beat": "Stranger strand: Andy, finale",
-      "kind": "story",
-      "guide": "Andy's strand only pays off if you keep returning between story missions instead of leaving it to the end. Do each of his missions as they appear on the map and his final job will unlock well before the finale crowds your schedule.",
+      "guide": "Andy's favours pepper Chapter 2 like interruptions, and Jason keeps answering the phone. Work his markers as they appear between the big scenes rather than saving them up, because his final mission assumes you remember the messes that built it. When his last job closes, the trophy closes the strand with it.",
       "steps": [
-        "Meet Andy and complete his first mission",
-        "Return for each follow-up mission as it appears",
-        "Complete Andy's final mission"
+        "Complete Andy's missions as they appear",
+        "Start his final mission when offered",
+        "Finish it to earn the trophy"
       ],
       "source": "PowerPyx",
-      "missable": null
+      "kind": "story",
+      "difficulty": 2,
+      "minutes": 60,
+      "chapter": 2,
+      "lead": "jason",
+      "beat": "Andy's Last Favour",
+      "beatText": "Andy keeps insisting he is turning his life around, usually while asking for something illegal. His final mission in Chapter 2 is the story asking whether anyone in this city actually gets to change."
     },
     {
       "id": 23,
       "name": "This Was No Boat Accident",
       "description": "Complete the final mission for Kenton.",
       "grade": "bronze",
-      "chapter": 3,
-      "beat": "Stranger strand: Kenton, finale",
-      "kind": "story",
-      "guide": "Kenton's storyline builds slowly and its final mission is the one players most often leave stranded. Keep his strand moving alongside chapter three, and bring a boat you trust for the closing job on the water.",
+      "guide": "Kenton's strand pulls Jason out onto the water again and again through Chapter 3, and each errand is longer than the last. Keep the boat in one piece between jobs if the game lets you, and bring patience for his final run — it is the strand's biggest scene by far. Finish it, and the trophy surfaces with the wreckage.",
       "steps": [
-        "Start Kenton's strand when his marker appears",
-        "Complete each Kenton mission in sequence",
-        "Finish his final mission on the water"
+        "Complete Kenton's missions as they appear",
+        "Start his final mission when offered",
+        "Finish it to earn the trophy"
       ],
       "source": "PSNProfiles",
-      "missable": null
+      "kind": "story",
+      "difficulty": 2,
+      "minutes": 60,
+      "chapter": 3,
+      "lead": "jason",
+      "beat": "Kenton's Waters",
+      "beatText": "Kenton swears the sea is safer than the streets, right up until it is not. His final mission closes Chapter 3's loudest friendship with salt water, wreckage and a very Kenton kind of denial."
     },
     {
       "id": 24,
       "name": "The Lone Rider",
       "description": "Complete the final mission for Billy.",
       "grade": "bronze",
-      "chapter": 2,
-      "beat": "Stranger strand: Billy, finale",
-      "kind": "story",
-      "guide": "Billy rides alone and expects you to keep up, so a decent bike and some riding practice make his strand far smoother. Clear his missions during chapter two while his territory is still your daily stomping ground.",
+      "guide": "Billy's jobs are long rides through Chapter 4 with Jason riding shotgun on another man's loneliness. Stay in formation, keep Billy's vehicle intact when trouble finds the convoy, and his final mission becomes a straight road home. Finish that last ride beside him and the trophy is yours.",
       "steps": [
-        "Meet Billy and accept his first job",
-        "Complete his strand missions in order",
-        "Finish Billy's final ride alongside him"
+        "Complete Billy's missions as they appear",
+        "Start his final mission when offered",
+        "Finish the last ride to earn the trophy"
       ],
       "source": "PlayStationTrophies.org",
-      "missable": null
+      "kind": "story",
+      "difficulty": 2,
+      "minutes": 60,
+      "chapter": 4,
+      "lead": "jason",
+      "beat": "The Last Ride With Billy",
+      "beatText": "Billy never asks for help, which is exactly why his final mission matters. In Chapter 4 the lone rider finally lets someone ride beside him, and the story treats that as the victory it is."
     },
     {
       "id": 25,
       "name": "Strangers & Freaks",
       "description": "Complete 8 mission strands for strangers across the state of Leonida.",
       "grade": "silver",
-      "chapter": 4,
-      "beat": "Stranger strands complete",
-      "kind": "story",
-      "guide": "Eight full stranger strands is the real social backbone of the platinum, and it cannot be rushed at the end. Treat every question-mark marker as a story beat in its own right, finish strands fully rather than sampling them, and this silver lands on its own.",
+      "guide": "Leonida keeps introducing you to people mid-crisis, usually at the exact moment you had other plans. Say yes anyway. Each strand is a short story of its own — finish every job that person offers until their marker disappears for good, then let the next stranger find you. Eight closed strands earn this silver.",
       "steps": [
-        "Start every stranger strand you encounter",
-        "Finish strands completely instead of sampling them",
-        "Complete 8 full strands across Leonida"
+        "Meet a stranger and finish their first job",
+        "Return until their strand is complete",
+        "Repeat until 8 strands are finished"
       ],
       "source": "TrueTrophies",
-      "missable": null,
-      "tip": "Tip: Keep a handwritten strand tally on paper; eight finished strands sneaks up on you, and half-finished strands are the real time sink."
+      "kind": "world",
+      "difficulty": 3,
+      "minutes": 480,
+      "count": 8,
+      "offscript": true
     },
     {
       "id": 26,
       "name": "Supply & Demand",
       "description": "Complete the final mission for Randy.",
       "grade": "bronze",
-      "chapter": 4,
-      "beat": "Stranger strand: Randy, finale",
-      "kind": "story",
-      "guide": "Randy's supply business escalates with every delivery, and his final mission assumes you know the routes by heart. Learn the shortcuts during his early jobs and the finale becomes a victory lap instead of a scramble.",
+      "guide": "In the final chapter even the side hustles turn into runs for your life, and Lucia drives Randy's last delivery. Protect the cargo the way the strand taught you — steady on the straights, ruthless at the chokepoints — and do not stop for anything the road throws at you. Deliver it, and the trophy signs the receipt.",
       "steps": [
-        "Begin Randy's strand and learn his delivery routes",
-        "Complete each supply mission as it unlocks",
-        "Finish Randy's final mission"
+        "Complete Randy's missions as they appear",
+        "Start his final mission when offered",
+        "Deliver the final job to earn the trophy"
       ],
       "source": "Exophase",
-      "missable": null
+      "kind": "story",
+      "difficulty": 2,
+      "minutes": 60,
+      "chapter": 5,
+      "lead": "lucia",
+      "beat": "Randy's Final Delivery",
+      "beatText": "In the final chapter even the side hustles turn serious. Randy's last delivery runs through a state that is actively hunting the pair, and finishing it feels less like business and more like loyalty."
     },
     {
       "id": 27,
       "name": "Spin On This!",
       "description": "Complete the final mission for Tyrone.",
       "grade": "bronze",
-      "chapter": 4,
-      "beat": "Stranger strand: Tyrone, finale",
-      "kind": "story",
-      "guide": "Tyrone's strand is pure Vice City flavour with a finale that rewards showing up prepared. Keep his missions in your rotation through chapter four and bring a fast, durable car for the last job.",
+      "guide": "Tyrone has been promising Jason a legendary night all game, and his final mission in the last chapter is that promise coming due. Play along with the spectacle, keep up when he improvises — he will — and protect the gig when it tips sideways near the end. Close his strand and the trophy takes a bow with him.",
       "steps": [
-        "Meet Tyrone and complete his opening mission",
-        "Work through his strand between story beats",
-        "Complete Tyrone's final mission"
+        "Complete Tyrone's missions as they appear",
+        "Start his final mission when offered",
+        "Finish the showpiece to earn the trophy"
       ],
       "source": "GTA Wiki (Fandom)",
-      "missable": null
+      "kind": "story",
+      "difficulty": 2,
+      "minutes": 60,
+      "chapter": 5,
+      "lead": "jason",
+      "beat": "Tyrone's Encore",
+      "beatText": "Tyrone always said he would go out with a bang, and his final mission in the last chapter makes good on it. It is the story's loudest goodbye, played at full volume on purpose."
     },
     {
       "id": 28,
       "name": "Positive Mental Attitude",
       "description": "Meditate at every spot across Leonida.",
       "grade": "bronze",
-      "chapter": null,
-      "beat": "Interlude: meditation spots",
-      "kind": "world",
-      "guide": "Eighteen meditation spots hide in the prettiest corners of the state, and most sit near other collectibles worth grabbing in the same trip. Clear them region by region during chapter two downtime and the trophy quietly completes itself.",
+      "guide": "After the loud chapters, the map offers you these quiet corners — hilltops, beaches, overlooks where the sirens can't reach. Travel to each one, sit down, and stay until the meditation completes instead of cancelling out early. Clear them region by region, the way the story clears its own head between storms.",
       "steps": [
-        "Find a meditation spot and interact with it",
-        "Work through spots region by region",
-        "Meditate at all 18 spots across Leonida"
+        "Find a meditation spot in the wild",
+        "Meditate until the session completes",
+        "Repeat at every spot across Leonida"
       ],
       "source": "Push Square",
-      "missable": null,
+      "kind": "collectibles",
+      "difficulty": 1,
+      "minutes": 240,
       "offscript": true
     },
     {
@@ -544,17 +543,16 @@
       "name": "Fair Game",
       "description": "Hunt a unique animal for Bret.",
       "grade": "bronze",
-      "chapter": null,
-      "beat": "Interlude: the unique hunt",
-      "kind": "world",
-      "guide": "Bret's unique animal is a one-animal hunt that punishes loud approaches, so go in quiet and prepared. Track it at the suggested time of day, line up a clean shot, and deliver exactly what Bret asked for.",
+      "guide": "Bret talks about one animal the way other men talk about weather — constantly, and as if it personally offended him. Follow his directions into its territory, slow down before the ground tells you to, and take the shot only when it presents itself cleanly. Carry the hunt home to Bret to close the scene.",
       "steps": [
-        "Accept Bret's hunting request",
-        "Track the unique animal at its habitat",
-        "Hunt it cleanly and return to Bret"
+        "Take the hunting job from Bret",
+        "Track the unique animal in its territory",
+        "Complete the hunt and return to Bret"
       ],
       "source": "PowerPyx",
-      "missable": null,
+      "kind": "world",
+      "difficulty": 2,
+      "minutes": 30,
       "offscript": true
     },
     {
@@ -562,17 +560,17 @@
       "name": "Don't Touch My Deck",
       "description": "Complete 3 Collectible Card sets.",
       "grade": "silver",
-      "chapter": null,
-      "beat": "Interlude: card sets",
-      "kind": "collectible",
-      "guide": "Collectible cards come in themed sets, and completing any three full sets is far smarter than scattering effort across all of them. Pick the three sets whose locations overlap your usual routes and focus until each deck is finished.",
+      "guide": "The cards turn up where Leonida lingers — bars, back rooms, shop counters the story only glances at. Pick one set and hunt it like a subplot: check interiors properly, look behind counters, finish the set before starting another. Three completed decks earn the silver.",
       "steps": [
-        "Choose three card sets to focus on first",
-        "Collect every card in those sets, region by region",
-        "Complete all 3 sets in your collection menu"
+        "Pick up a collectible card in the world",
+        "Finish one full set card by card",
+        "Repeat until 3 sets are complete"
       ],
       "source": "PSNProfiles",
-      "missable": null,
+      "kind": "collectibles",
+      "difficulty": 3,
+      "minutes": 420,
+      "count": 3,
       "offscript": true
     },
     {
@@ -580,17 +578,17 @@
       "name": "You WAiNKer!",
       "description": "WAiNK It at 100 locations.",
       "grade": "silver",
-      "chapter": null,
-      "beat": "Interlude: WAiNK spots",
-      "kind": "collectible",
-      "guide": "One hundred WAiNK locations is a pure exploration grind that pairs perfectly with finishing the map in the finale chapter. Keep the counter visible, sweep district by district, and never pass a marked spot without stopping.",
+      "guide": "You'll start noticing WAiNK spots the way you notice your own name in conversation — everywhere, once you're listening. Don't plan special trips: they cluster in the busy districts you cross between story beats anyway. Tag each one as you pass and let the counter climb quietly in the background of the run.",
       "steps": [
-        "Find your first WAiNK location and note the counter",
-        "Sweep locations district by district",
-        "Reach 100 WAiNK locations in total"
+        "Find a WAiNK location marker",
+        "Use the WAiNK interaction there",
+        "Repeat at 100 different locations"
       ],
       "source": "PlayStationTrophies.org",
-      "missable": null,
+      "kind": "collectibles",
+      "difficulty": 2,
+      "minutes": 360,
+      "count": 100,
       "offscript": true
     },
     {
@@ -598,17 +596,17 @@
       "name": "One Last Thing",
       "description": "Complete 50 Challenges.",
       "grade": "bronze",
-      "chapter": null,
-      "beat": "Interlude: challenge count",
-      "kind": "activity",
-      "guide": "Challenges accumulate from almost everything you do, so fifty is a milestone rather than a grind if you play broadly. Check the challenge menu near the finale, top up the categories that are one or two completions short, and this pops without drama.",
+      "guide": "Challenges are the game's small talk — short trials scattered across the map between the big conversations. A bronze finish still counts as a conversation had, so don't restart for gold unless a trial genuinely charms you. Fifty of them, swept up alongside your other errands, close this one out.",
       "steps": [
-        "Open the challenges menu and review progress",
-        "Top up categories that are nearly complete",
-        "Reach 50 completed challenges"
+        "Start any challenge on the map",
+        "Finish it at any medal level",
+        "Repeat until 50 challenges are complete"
       ],
       "source": "TrueTrophies",
-      "missable": null,
+      "kind": "activities",
+      "difficulty": 2,
+      "minutes": 400,
+      "count": 50,
       "offscript": true
     },
     {
@@ -616,36 +614,37 @@
       "name": "Hot Together",
       "description": "Lose a 4 star Wanted Level with your partner and escape the heat.",
       "grade": "bronze",
-      "chapter": null,
-      "beat": "Interlude: partner escape",
-      "kind": "combat",
-      "guide": "Raise real heat with your partner beside you, then lose it properly rather than waiting it out in a menu. Plan an escape route with alleys and a vehicle swap before you start, and stay together until the stars finally clear.",
+      "guide": "When a Chapter 3 job leaves you both lit up at four stars, don't split up to shake it — that's the whole point of the scene. Dive for a tunnel, an alley or the water together the second the search begins, stay out of the sight cones, and breathe until the stars drain. You both walk out free, or neither of you does.",
       "steps": [
-        "Commit crimes with your partner present until 4 stars",
-        "Break line of sight and swap vehicles if needed",
-        "Stay hidden until the wanted level fully clears"
+        "Raise a 4 star Wanted Level with your partner present",
+        "Break line of sight and hide",
+        "Escape until the wanted level clears"
       ],
       "source": "Exophase",
-      "missable": null,
-      "offscript": true,
-      "tip": "Tip: Tunnels and multi-storey car parks break police sightlines fastest, so plan your four-star escape to end inside one."
+      "kind": "story",
+      "difficulty": 3,
+      "minutes": 20,
+      "chapter": 3,
+      "lead": "duo",
+      "beat": "Hot Together",
+      "beatText": "Four stars, one car, two people who refuse to split up. This Chapter 3 escape is the partnership in miniature: the heat is never really about the police, it is about whether they run together."
     },
     {
       "id": 34,
       "name": "Retail Therapy",
       "description": "Rob 3 shops back-to-back with your partner without losing your Wanted Level.",
       "grade": "bronze",
-      "chapter": null,
-      "beat": "Interlude: shop spree",
-      "kind": "combat",
-      "guide": "Three shops in a row, one unbroken wanted level, and your partner along for every register. Pick three shops on one straight road, park facing your exit each time, and keep moving before the response escalates beyond driving away.",
+      "guide": "Pick a district where the shops huddle close together, because this scene is one continuous take. Rob the first till, walk straight into the next shop while the heat is still breathing down your neck, and keep your partner at your shoulder the whole time. The chain — and the trophy — breaks if the wanted level dies between shops.",
       "steps": [
-        "Choose three shops close together on one route",
-        "Rob the first shop with your partner and keep the wanted level",
-        "Rob the second and third shops back-to-back without losing the heat"
+        "Find three shops close together",
+        "Rob them one after another with your partner",
+        "Keep the Wanted Level alive until the third is done"
       ],
       "source": "GTA Wiki (Fandom)",
-      "missable": null,
+      "kind": "world",
+      "difficulty": 3,
+      "minutes": 25,
+      "count": 3,
       "offscript": true
     },
     {
@@ -653,17 +652,17 @@
       "name": "Whip It Good",
       "description": "Discover 100 vehicles.",
       "grade": "bronze",
-      "chapter": null,
-      "beat": "Interlude: vehicle discoveries",
-      "kind": "collectible",
-      "guide": "Discovery simply means getting in and driving, so steal broadly instead of loyally driving one favourite car. Airports, docks, rich districts and construction sites each hide models you will never see in normal traffic.",
+      "guide": "Treat every new car on the road as a sentence you haven't read yet. The story will hand you most of this list on its own, so help it along: swap seats whenever an unfamiliar model rolls past, and cruise the rich districts and the docks when you want the rare metal. A hundred first drives arrive sooner than the number suggests.",
       "steps": [
-        "Enter and drive every new vehicle model you spot",
-        "Hunt rare models at airports, docks and wealthy districts",
-        "Reach 100 distinct discovered vehicles"
+        "Enter and drive a vehicle you have not used",
+        "Swap cars whenever a new model appears",
+        "Repeat until 100 vehicles are discovered"
       ],
       "source": "Push Square",
-      "missable": null,
+      "kind": "collectibles",
+      "difficulty": 1,
+      "minutes": 300,
+      "count": 100,
       "offscript": true
     },
     {
@@ -671,17 +670,17 @@
       "name": "Gunslinger",
       "description": "Take down 5 enemies in a single use of Combat Focus.",
       "grade": "bronze",
-      "chapter": null,
-      "beat": "Interlude: Combat Focus five",
-      "kind": "combat",
-      "guide": "Five takedowns inside one Combat Focus window is about setup, not reflexes. Find a clustered group during an early mission, line up headshots before you trigger the ability, and spend the slow time on targets you already marked.",
+      "guide": "Wait for a scene that crowds enemies into the open — a yard, a lot, a roadblock — before you spend your Focus. Line the shots up in your head while time still runs normally, trigger the slowdown, then work left to right without second-guessing. Five clean takedowns inside one breath of slowed time is the whole trick.",
       "steps": [
-        "Find a group of at least five enemies close together",
-        "Aim and plan your shot order before activating Combat Focus",
-        "Take down 5 enemies before the effect ends"
+        "Gather at least five enemies in one fight",
+        "Activate Combat Focus with targets in view",
+        "Take down 5 enemies before it ends"
       ],
       "source": "PowerPyx",
-      "missable": null,
+      "kind": "world",
+      "difficulty": 3,
+      "minutes": 30,
+      "count": 5,
       "offscript": true
     },
     {
@@ -689,17 +688,18 @@
       "name": "Catch Me If You Can",
       "description": "Make an unscheduled departure at VCIA.",
       "grade": "bronze",
-      "chapter": null,
-      "beat": "At VCIA: unscheduled departure",
-      "kind": "world",
-      "guide": "An unscheduled departure means leaving VCIA your own way, in a plane the airport did not plan to lend you. The cleanest window is tied to your business at the airport in this chapter, so attempt it while that access is open instead of forcing it later.",
+      "guide": "Inside the VCIA sequence there is a blink-and-miss-it moment where the airport offers you an exit the script never scheduled. Save manually before the airport section begins so the attempt costs nothing, keep your eyes open while the scene unfolds, and the instant the unofficial way out appears — take it, don't admire it.",
       "steps": [
-        "Reach the airfield side of VCIA during chapter 3 access",
-        "Take an aircraft without following departure procedures",
-        "Leave VCIA airspace in the aircraft"
+        "Save manually before the VCIA section",
+        "Watch for the unscheduled exit window",
+        "Leave VCIA by the unofficial route"
       ],
       "source": "PSNProfiles",
-      "missable": "The easiest access window is during your chapter 3 business at VCIA; forcing entry later is far harder and can lock with story progress.",
+      "kind": "missable",
+      "difficulty": 3,
+      "minutes": 15,
+      "missable": true,
+      "missableReason": "The unscheduled departure only exists inside the VCIA story sequence; once the mission moves past the airport, the window closes for the rest of the playthrough.",
       "offscript": true
     },
     {
@@ -707,17 +707,16 @@
       "name": "Challenging Tank",
       "description": "Kinda hot in these Rhinos.",
       "grade": "bronze",
-      "chapter": null,
-      "beat": "Interlude: Rhino encounter",
-      "kind": "combat",
-      "guide": "Rhinos are military tanks, and the trophy wants you up close with that heat rather than sniping from safety. Wait for a high wanted level or a scripted military encounter, get inside the chaos briefly, and get out before the armour wins.",
+      "guide": "Sooner or later the state's answer to everything arrives on treads. When a Rhino rolls into your scene, don't duel it in the open like the cutscene wants you to — drag it somewhere with stairs, pillars and tight interiors it can't follow. From real cover, heavy explosives turn the monster into a negotiation you can win.",
       "steps": [
-        "Trigger a military response or find a scripted Rhino encounter",
-        "Engage the Rhino at close range as required",
-        "Escape once the trophy registers"
+        "Provoke or find a Rhino tank",
+        "Fight it from cover with explosives",
+        "Survive the encounter to earn the trophy"
       ],
       "source": "PlayStationTrophies.org",
-      "missable": null,
+      "kind": "world",
+      "difficulty": 4,
+      "minutes": 20,
       "offscript": true
     },
     {
@@ -725,17 +724,16 @@
       "name": "Sneakthief",
       "description": "Rob a jewelry store without being detected.",
       "grade": "bronze",
-      "chapter": null,
-      "beat": "Interlude: silent jewelry job",
-      "kind": "combat",
-      "guide": "A jewelry robbery with zero detection is a stealth puzzle disguised as a crime. Case the store first, enter when staff sightlines are weakest, move slowly between cases, and leave before anyone understands what happened.",
+      "guide": "Play this one like the quiet scene in a loud film. Case the store first — staff positions, camera arcs, the door nobody watches — then move slowly, keep your silhouette boring, and leave by the least observed exit before anyone's voice rises. If you're spotted, reload and study exactly which glance gave you away.",
       "steps": [
-        "Scout a jewelry store layout and staff positions",
-        "Enter quietly and rob the cases without being seen",
-        "Exit and leave the area still undetected"
+        "Choose a jewelry store and watch its routine",
+        "Rob it while staying undetected",
+        "Leave before any alarm is raised"
       ],
       "source": "TrueTrophies",
-      "missable": null,
+      "kind": "world",
+      "difficulty": 3,
+      "minutes": 25,
       "offscript": true
     },
     {
@@ -743,36 +741,34 @@
       "name": "Maximum Withdrawal",
       "description": "Rob 5 Bank Vaults and escape.",
       "grade": "silver",
-      "chapter": null,
-      "beat": "Interlude: five vaults",
-      "kind": "combat",
-      "guide": "Five full bank vault robberies, each ending in a real escape, is the heist endgame of free roam. Use everything The Cartel Heist taught you: stage a fast car, plan two escape routes, and never rob the fifth vault until your loadout is fully stocked.",
+      "guide": "Vault jobs are the story's set pieces you schedule yourself. Before the drill ever spins, park the escape car facing out and walk your exit route once on foot. Inside, the timer will beg you to get greedy — leave when the plan says leave. Five clean getaways, five chapters of your own little crime novel.",
       "steps": [
-        "Rob a bank vault and escape to learn the pattern",
-        "Repeat at different banks, varying your escape routes",
-        "Complete 5 vault robberies each ending in an escape"
+        "Rob a bank vault and take its contents",
+        "Escape until the heat clears",
+        "Repeat until 5 vaults are robbed"
       ],
       "source": "Exophase",
-      "missable": null,
-      "offscript": true,
-      "tip": "Tip: Rob vaults in ascending difficulty and bank the proceeds between jobs; a bust then costs you time, never your whole bankroll."
+      "kind": "world",
+      "difficulty": 4,
+      "minutes": 200,
+      "count": 5,
+      "offscript": true
     },
     {
       "id": 41,
       "name": "A Classic Blitz Play",
       "description": "Rob an Armored Truck and escape.",
       "grade": "bronze",
-      "chapter": null,
-      "beat": "Interlude: armored truck",
-      "kind": "combat",
-      "guide": "Armored trucks appear in free roam and reward a fast, decisive ambush over a long chase. Block the truck, deal with the doors quickly, grab the take, and be gone before the wanted level grows teeth.",
+      "guide": "The trucks run their routes like minor characters with somewhere to be. Set your scene ahead of one: block it hard with a heavy vehicle, deal with the guards before the conversation turns into a siege, and crack it open fast. Then vanish — break line of sight early and keep moving until the escape registers.",
       "steps": [
-        "Spot an armored truck in free roam traffic",
-        "Stop it and breach the rear doors",
-        "Take the money and escape the wanted level"
+        "Find and stop an armored truck",
+        "Open it and take the cash",
+        "Escape until the heat clears"
       ],
       "source": "GTA Wiki (Fandom)",
-      "missable": null,
+      "kind": "world",
+      "difficulty": 3,
+      "minutes": 20,
       "offscript": true
     },
     {
@@ -780,17 +776,16 @@
       "name": "The Goodtime State",
       "description": "Explore all of Leonida.",
       "grade": "bronze",
-      "chapter": null,
-      "beat": "Interlude: full map",
-      "kind": "world",
-      "guide": "Exploring all of Leonida means physically visiting every named area, including the quiet rural corners no mission ever visits. Compare your map against the area counter, then plan one long road trip through whatever grey patches remain.",
+      "guide": "Leave this for the epilogue, when the story stops telling you where to drive. The grey patches left on the map are almost always water, islands and back roads the plot never needed. Take a helicopter at dawn and sweep them methodically, county by county, until the whole state has been seen with your own eyes.",
       "steps": [
-        "Open the map and note unexplored areas",
-        "Drive or fly through each remaining region",
-        "Visit all 52 areas of Leonida"
+        "Open the map and find unexplored areas",
+        "Visit every district and island",
+        "Sweep the last grey patches by air"
       ],
       "source": "Push Square",
-      "missable": null,
+      "kind": "collectibles",
+      "difficulty": 2,
+      "minutes": 360,
       "offscript": true
     },
     {
@@ -798,17 +793,16 @@
       "name": "Pest Control",
       "description": "Rob an Illegal Operation belonging to each gang.",
       "grade": "bronze",
-      "chapter": null,
-      "beat": "Interlude: every gang hit",
-      "kind": "combat",
-      "guide": "Nine gangs, nine illegal operations, and one robbery at each is the checklist here. Track which gangs you have already hit in your notes, because the game will not line them up neatly for you near the end.",
+      "guide": "Read the map like a cast list: every gang colours its turf, and every gang keeps one illegal operation running on it. Rob one, then leave that crew alone and go introduce yourself to the next — farming the same gang teaches the counter nothing. Nine introductions later, the state runs noticeably quieter.",
       "steps": [
-        "Identify an illegal operation and its owning gang",
-        "Rob it and escape, noting the gang in your tracker",
-        "Rob one operation from each of the 9 gangs"
+        "Find an illegal operation on gang turf",
+        "Rob it and get away",
+        "Repeat for an operation of each gang"
       ],
       "source": "PowerPyx",
-      "missable": null,
+      "kind": "world",
+      "difficulty": 3,
+      "minutes": 270,
       "offscript": true
     },
     {
@@ -816,17 +810,18 @@
       "name": "In The Beginning…",
       "description": "Enjoy a cocktail with a view on Ocean Beach.",
       "grade": "bronze",
-      "chapter": null,
-      "beat": "Prologue detour: Ocean Beach cocktail",
-      "kind": "world",
-      "guide": "A postcard moment hiding in the opening hours: a cocktail, a view, and Ocean Beach before everything goes wrong. Grab it during your first free moment in the prologue area, because the story soon pulls you far away from this shoreline.",
+      "guide": "In the opening hours, when the story first sets you down on Ocean Beach, it offers you a drink with a view and then immediately tries to hurry you along. Refuse the hurry. Find the cocktail spot while the light is still doing its trick, take the prompt, and let the scene breathe — this exact moment never comes back once the prologue closes.",
       "steps": [
-        "Reach Ocean Beach during your early free roam",
-        "Order a cocktail at a beachfront spot with a view",
-        "Enjoy the drink while overlooking the ocean"
+        "Save manually when you first reach Ocean Beach",
+        "Find the cocktail spot with the view",
+        "Take the drink before moving the story on"
       ],
       "source": "PSNProfiles",
-      "missable": "Tied to the prologue shoreline window; the beachfront spot is easiest to reach before the story moves you inland.",
+      "kind": "missable",
+      "difficulty": 1,
+      "minutes": 5,
+      "missable": true,
+      "missableReason": "The Ocean Beach cocktail moment only exists during the opening stretch of the story; after the prologue closes, the spot and its prompt are gone for the rest of the playthrough.",
       "offscript": true
     },
     {
@@ -834,17 +829,16 @@
       "name": "Capital Offense",
       "description": "Smash your way out of a vehicle showroom in classic style.",
       "grade": "bronze",
-      "chapter": null,
-      "beat": "Interlude: showroom exit",
-      "kind": "world",
-      "guide": "Pick a vehicle showroom with a big glass front, take a car inside, and leave through the window in the grand tradition of the series. Aim for the centre of the glass at speed and the classic-style exit registers cleanly.",
+      "guide": "Every car film has this scene; Leonida just lets you shoot it yourself. Walk into a showroom with a big glass front, take a car off its little stage, and leave through the window instead of the door — build enough speed that the exit reads as a statement, not a parking error. The trophy pops as you land outside.",
       "steps": [
-        "Find a vehicle showroom with a glass storefront",
+        "Enter a vehicle showroom",
         "Get into a car inside the showroom",
-        "Accelerate and smash out through the glass"
+        "Drive out through the glass front"
       ],
       "source": "PlayStationTrophies.org",
-      "missable": null,
+      "kind": "world",
+      "difficulty": 1,
+      "minutes": 10,
       "offscript": true
     },
     {
@@ -852,17 +846,16 @@
       "name": "Let’s Go Bowling",
       "description": "Follow-through at the Kolt & Associates' bowling alley.",
       "grade": "bronze",
-      "chapter": null,
-      "beat": "Interlude: bowling night",
-      "kind": "activity",
-      "guide": "A deliberately nostalgic detour to the lanes at the Kolt and Associates alley. Play a proper game rather than a single throw, keep your follow-through clean, and enjoy one of the calmest trophies on the list.",
+      "guide": "Between the loud chapters, the Kolt and Associates alley offers the most ordinary evening in the state — and hides a small extra moment around the lanes. Play a frame, stay for the follow-through prompt when it surfaces, and take it instead of heading straight back to the car. The trophy rolls in behind it.",
       "steps": [
         "Visit the Kolt & Associates bowling alley",
-        "Start a bowling game",
-        "Complete your throws with a clean follow-through"
+        "Play a game of bowling there",
+        "Take the follow-through prompt when offered"
       ],
       "source": "TrueTrophies",
-      "missable": null,
+      "kind": "activities",
+      "difficulty": 1,
+      "minutes": 15,
       "offscript": true
     },
     {
@@ -870,51 +863,56 @@
       "name": "Personal Best",
       "description": "A partnership with mass appeal.",
       "grade": "bronze",
-      "chapter": 5,
-      "beat": "Finale beat: partnership moment",
-      "kind": "story",
-      "guide": "This one celebrates the central partnership at a specific late-story moment with genuine mass appeal. Keep both leads together during the finale beats, follow the prompted interaction fully, and do not skip the scene that follows.",
+      "guide": "Once, in the middle chapters, the story puts the pair's teamwork on public display and watches what they do with an audience. Keep a manual save before the big partner set pieces so the moment costs you nothing to retry. When the crowd-facing scene arrives, play it as a duet — the trophy only recognises the version where neither of them performs alone.",
       "steps": [
-        "Reach the late-story partnership beat in the finale",
-        "Complete the prompted partner interaction in full",
-        "Watch the following scene without skipping"
+        "Save manually before partner set pieces",
+        "Play the partnership moment as a duo",
+        "Finish the scene together to earn the trophy"
       ],
       "source": "Exophase",
-      "missable": "The partnership moment occurs once during the finale sequence; skipping its scene can pass the beat permanently."
+      "kind": "missable",
+      "difficulty": 2,
+      "minutes": 10,
+      "missable": true,
+      "missableReason": "The partnership moment is a one-time story scene; if the pair are split or the scene is rushed past, the shared version of it never repeats in this playthrough.",
+      "offscript": true
     },
     {
       "id": 48,
       "name": "Actions Speak Louder",
       "description": "Choices made (for better or worse).",
       "grade": "bronze",
-      "chapter": 5,
-      "beat": "Finale beat: choices tally",
-      "kind": "story",
-      "guide": "Your choices are counted all game long, and the tally runs into the hundreds by the finale if you engage with everything. Talk to people, answer prompts, take optional branches, and the count climbs far faster than story choices alone.",
+      "guide": "The story keeps receipts. At its branching moments it tracks not just what you chose but whether you stayed chosen, so save before the big mid-game decisions, pick like you mean it, and live with the consequences on screen. Reloading around the choices to shop for better outcomes leaves the tracker short of what this trophy needs.",
       "steps": [
-        "Make optional choices and responses whenever offered",
-        "Engage with ambient prompts across the state",
-        "Reach the tracked choice count of 500"
+        "Save manually before major story choices",
+        "Commit to each choice when it is offered",
+        "Finish the sequence without reloading past it"
       ],
       "source": "GTA Wiki (Fandom)",
-      "missable": "Story choices themselves are one-time decisions; a passive playthrough that skips optional choices can finish far below the tally pace."
+      "kind": "missable",
+      "difficulty": 2,
+      "minutes": 30,
+      "missable": true,
+      "missableReason": "The choice tracker only fills from decisions made inside this playthrough's story beats; once a branching chapter closes, its choices cannot be re-made without starting the chapter over.",
+      "offscript": true
     },
     {
       "id": 49,
       "name": "Bad Luck, I Guess",
       "description": "Second time's the charm.",
       "grade": "bronze",
-      "chapter": null,
-      "beat": "Early beat: second attempt",
-      "kind": "world",
-      "guide": "Some failures in Leonida are scripted luck, and this trophy rewards coming back and succeeding on the second attempt. When an early attempt goes wrong in a way that feels staged, do not reload an old save; try again immediately and take the charm.",
+      "guide": "Somewhere out there is an attempt the game has rigged for you to fail, beautifully, the first time. When it collapses, resist the oldest instinct in gaming — do not reload an earlier save. Take the second chance the scene itself offers you, on the spot, with the embarrassment still warm. Succeeding on that immediate retry is the entire scene.",
       "steps": [
-        "Attempt the luck-based early activity and fail once",
-        "Retry the same attempt straight away",
-        "Succeed on the second try"
+        "Reach the scripted first attempt",
+        "Let the first try fail as designed",
+        "Succeed on the immediate second try"
       ],
       "source": "Push Square",
-      "missable": "Reloading a save after the failed first attempt can reset the sequence; retry in the same session instead.",
+      "kind": "missable",
+      "difficulty": 2,
+      "minutes": 10,
+      "missable": true,
+      "missableReason": "The second-chance sequence only triggers immediately after the designed first failure; reloading an earlier save or skipping the retry removes the sequence from this playthrough.",
       "offscript": true
     },
     {
@@ -922,17 +920,16 @@
       "name": "The Truth Is Out There",
       "description": "What the hell just happened?",
       "grade": "bronze",
-      "chapter": null,
-      "beat": "Interlude: something strange",
-      "kind": "world",
-      "guide": "Leonida hides at least one genuinely strange encounter, and this trophy simply asks you to witness it. Explore remote spots at night, follow odd lights or sounds instead of driving past, and stay until the weirdness fully plays out.",
+      "guide": "Wait for a night when the story is between storms, then drive out past where the city lights give up — the swamps, the far fields, the roads with no names in the dialogue. Investigate anything that doesn't behave like scenery. When something genuinely strange starts, don't drive off: stay in the scene until it finishes being strange.",
       "steps": [
-        "Explore remote locations at night",
-        "Investigate strange lights, sounds or sightings",
-        "Witness the full strange event"
+        "Head out of the city at night",
+        "Explore the swamps and remote areas",
+        "Witness a strange event to its end"
       ],
       "source": "PowerPyx",
-      "missable": null,
+      "kind": "world",
+      "difficulty": 2,
+      "minutes": 45,
       "offscript": true
     },
     {
@@ -940,17 +937,16 @@
       "name": "Ten Pin",
       "description": "Bowl 'em over with a melee drive-by.",
       "grade": "bronze",
-      "chapter": null,
-      "beat": "Interlude: melee drive-by",
-      "kind": "combat",
-      "guide": "Knock a pedestrian down with a melee swing from a moving vehicle and you have recreated bowling, Vice City style. Drive slowly past a target, time the melee as you pass, and keep the speed low enough that the swing, not the car, does the work.",
+      "guide": "Find a busy pavement and treat it like a bowling lane with worse lighting. Roll past slowly — speed is the enemy of aim here — and swing from the driver's seat as your target crosses the front fender. One clean knockdown, scored like a strike, is all the scene asks for.",
       "steps": [
-        "Equip a melee weapon usable from a vehicle",
-        "Drive slowly alongside a target on foot",
-        "Land the melee drive-by knockdown"
+        "Drive slowly past a crowded pavement",
+        "Perform a melee swing from the vehicle",
+        "Knock a pedestrian down with the drive-by"
       ],
       "source": "PSNProfiles",
-      "missable": null,
+      "kind": "world",
+      "difficulty": 2,
+      "minutes": 10,
       "offscript": true
     },
     {
@@ -958,17 +954,17 @@
       "name": "Dime on the Dollar",
       "description": "Earn $250,000 laundering Marked Bills through your contacts.",
       "grade": "bronze",
-      "chapter": null,
-      "beat": "Interlude: laundering total",
-      "kind": "world",
-      "guide": "Marked bills only become real money through your contacts, and a quarter of a million is a long but steady pipeline. Feed bills to laundering contacts whenever you hold them instead of stockpiling, and let chapter four earnings do the heavy lifting.",
+      "guide": "Every robbery scene ends the same way: a bag of bills too hot to spend. Don't sit on them — walk them straight to your laundering contacts while the money's story is still simple, and let the dime-on-the-dollar rate sting a little less each time. Across a full run of heists and hold-ups, the washed total climbs to a quarter of a million.",
       "steps": [
-        "Acquire marked bills from robberies and heists",
-        "Deliver them to laundering contacts regularly",
-        "Reach $250,000 laundered in total"
+        "Collect marked bills from robberies",
+        "Launder them through your contacts",
+        "Repeat until $250,000 has been laundered"
       ],
       "source": "PlayStationTrophies.org",
-      "missable": null,
+      "kind": "world",
+      "difficulty": 3,
+      "minutes": 500,
+      "count": 250000,
       "offscript": true
     },
     {
@@ -976,17 +972,16 @@
       "name": "Treat Yo Self",
       "description": "Spend $100,000 across all shops.",
       "grade": "bronze",
-      "chapter": null,
-      "beat": "Interlude: spending spree",
-      "kind": "world",
-      "guide": "Spending a hundred thousand across shops is painless if you stop hoarding cash out of habit. Buy weapons, upgrades, clothes and vehicle work as you go from chapter two onward, and keep big purchases for items that also serve other trophies.",
+      "guide": "This counter is the run's quiet montage: every weapon bought before a big scene, every outfit, every haircut between chapters adds a frame. Don't hoard cash out of habit — the story's later pages demand the gear anyway. A hundred thousand spent across a full playthrough happens almost without a decision ever being made.",
       "steps": [
-        "Track your lifetime shop spending as you play",
-        "Buy useful gear instead of hoarding cash",
-        "Reach $100,000 spent across all shops"
+        "Buy gear and services in any shop",
+        "Keep spending as the story opens new stores",
+        "Reach $100,000 total spent"
       ],
       "source": "TrueTrophies",
-      "missable": null,
+      "kind": "world",
+      "difficulty": 1,
+      "minutes": 400,
       "offscript": true
     },
     {
@@ -994,36 +989,34 @@
       "name": "Little Boxes",
       "description": "Purchase all garage properties.",
       "grade": "bronze",
-      "chapter": null,
-      "beat": "Epilogue purchase: all garages",
-      "kind": "world",
-      "guide": "Eight garage properties scattered across the state, all far easier to afford once story money stops being spoken for. Buy them in the epilogue in one planned sweep, starting with the districts where your rarest vehicles already live.",
+      "guide": "Garages go on sale across the state like little epilogues with price tags. Buy the cheap ones early, when the story's money is small, and save the prime Vice City boxes for the morning after a heist, when it isn't. The trophy signs the deed on the final purchase.",
       "steps": [
-        "Locate all 8 garage properties for sale",
-        "Save enough cash from story and cleanup earnings",
-        "Purchase every garage property"
+        "Earn cash through jobs and robberies",
+        "Buy each garage property on the map",
+        "Purchase the last garage to earn the trophy"
       ],
       "source": "Exophase",
-      "missable": null,
-      "offscript": true,
-      "tip": "Tip: Buy garages in the order you will store rare cars, not the order you discover them, so your best vehicles end up closest to the finale districts."
+      "kind": "world",
+      "difficulty": 3,
+      "minutes": 600,
+      "offscript": true
     },
     {
       "id": 55,
       "name": "On the Spot",
       "description": "Register 10 vehicles to the Scooter Bros app.",
       "grade": "bronze",
-      "chapter": null,
-      "beat": "Interlude: Scooter Bros registry",
-      "kind": "collectible",
-      "guide": "The Scooter Bros app turns vehicles you find into registered rides, and ten registrations is an easy chapter one win. Register every keeper vehicle as soon as you park it, rather than trying to remember candidates later.",
+      "guide": "Every time a car earns a place in the story — the getaway wheels, the beach-day convertible, the one that survived the finale — register it in the Scooter Bros app before the moment passes. Ten registrations collected car by car across the run beats grinding ten junkers in a car park at the end, and it reads better too.",
       "steps": [
-        "Open the Scooter Bros app on your phone",
-        "Register a vehicle you want to keep",
-        "Register 10 vehicles in total"
+        "Acquire a vehicle you want to keep",
+        "Register it in the Scooter Bros app",
+        "Repeat until 10 vehicles are registered"
       ],
       "source": "GTA Wiki (Fandom)",
-      "missable": null,
+      "kind": "collectibles",
+      "difficulty": 1,
+      "minutes": 60,
+      "count": 10,
       "offscript": true
     }
   ]
